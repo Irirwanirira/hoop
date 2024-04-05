@@ -1,21 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import COLORS from './src/constants';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+
+import WelcomeScreen from './src/screens/WelcomeScreen';
+import {COLORS} from './src/constants';
+import HollaScreen from './src/screens/HollaScreen';
+import FindParkingScreen from './src/screens/FindParkingScreen';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      {/* <WelcomeScreen /> */}
+      <HollaScreen />
+      {/* <FindParkingScreen /> */}
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:COLORS.Grey,
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingHorizontal: 35,
+    paddingVertical: 50,
+    backgroundColor: "#EBEBEB"
   },
 });

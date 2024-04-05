@@ -7,4 +7,12 @@ const COLORS = {
     Grey:"#2D2D2D"
 
 }
-export default COLORS
+
+
+const SIZES = {
+    small_sm: 14,
+    medium: 16,
+    large: 24,
+}
+
+export  {COLORS, SIZES }
