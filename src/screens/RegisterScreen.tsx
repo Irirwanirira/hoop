@@ -86,13 +86,15 @@ const styles = StyleSheet.create({
     },
     parent:{
         backgroundColor: COLORS.DarkBlue,
-        width:"100%"
+        width: "100%",
+        height:"100%"
         
     },
     LowerBig: {
         backgroundColor: COLORS.BackgroundColor,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
+        height:"80%"
         
         
     },
@@ -120,12 +122,12 @@ const styles = StyleSheet.create({
          marginTop: 50,
         display: "flex",
         alignItems: "center",
-        marginBottom:100
+        marginBottom:50
     },
     LowerLastView: {
         display: "flex",
         alignItems:"center",
-        marginBottom:20
+        marginBottom:10
     }
 
 })

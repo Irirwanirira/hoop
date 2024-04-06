@@ -8,9 +8,9 @@ import RegisterScreen from './src/screens/RegisterScreen';
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <EmailLoginScreen />
+      {/* <EmailLoginScreen /> */}
       {/* <PhoneScreenLogin /> */}
-      {/* <RegisterScreen/> */}
+      <RegisterScreen/>
     </SafeAreaView>
   );
 }

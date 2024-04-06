@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         flexDirection:"column",
         alignItems: "center",
         justifyContent: "center",
-        marginBottom:20
+        marginBottom:10
         
     },
     retrieve: {

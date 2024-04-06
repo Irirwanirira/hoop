@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         flexDirection:"column",
         alignItems: "center",
         justifyContent: "center",
-        marginBottom:20
+        marginBottom:10
         
     },
     retrieve: {
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
          marginTop: 50,
         display: "flex",
         alignItems: "center",
-        marginBottom:100
+        marginBottom:80
     },
     LowerLastView: {
         display: "flex",
