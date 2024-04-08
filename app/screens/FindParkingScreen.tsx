@@ -1,31 +1,34 @@
 import React from "react";
+
 // import { Image } from 'expo-image';
 import { StyleSheet, Text, View, Pressable, Image } from "react-native";
 
-import { welcomeImage, COLORS, SIZES } from "../constants";
-import Buttons from "../components/Buttons";
-import { callIcon, messageIcon } from "../constants/Icons";
+import { findParkingImage, COLORS, SIZES } from "../../constants";
+import Buttons from "../../components/Buttons";
+import { callIcon, messageIcon } from "../../constants/Icons";
 
-const WelcomeScreen = () => {
+const FindParkingScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.skipBtn}>Skip</Text>
 
       <View style={styles.imageContainer}>
-        <Image style={styles.image} source={welcomeImage} />
+        <Image style={styles.image} source={findParkingImage} />
       </View>
 
-      <Text style={styles.title}>Welcome</Text>
+      <Text style={styles.title}>Find Parking</Text>
 
-      <Text style={styles.landingMsg}> Find a best possible way to park</Text>
+      <Text style={styles.landingMsg}>
+        Find your perfect parking space wherever and whenever you need
+      </Text>
 
       {/* view for paginnation */}
       <View style={styles.paginator}>
+        <View style={styles.pagin}></View>
+        <View style={styles.pagin}></View>
         <View
           style={[styles.pagin, { backgroundColor: COLORS.Orange, opacity: 1 }]}
         ></View>
-        <View style={styles.pagin}></View>
-        <View style={styles.pagin}></View>
       </View>
 
       <View style={styles.btnSection}>
@@ -62,23 +65,26 @@ const WelcomeScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    paddingHorizontal: 30,
+    paddingTop: 80,
+  },
 
   skipBtn: {
     alignSelf: "flex-end",
-    color: COLORS.Primary,
+    color: COLORS.Grey,
     opacity: 0.7,
     fontSize: SIZES.medium,
   },
 
   imageContainer: {
     alignSelf: "center",
-    marginTop: 150,
+    marginTop: 40,
   },
 
   image: {
-    height: 200,
-    width: 350,
+    // height: 350,
+    // width: 300,
   },
 
   title: {
@@ -106,7 +112,6 @@ const styles = StyleSheet.create({
 
   pagin: {
     backgroundColor: COLORS.Primary,
-    opacity: 0.3,
     width: 10,
     height: 10,
     borderRadius: 100,
@@ -126,4 +131,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WelcomeScreen;
+export default FindParkingScreen;

@@ -11,7 +11,7 @@ interface ButtonTypes {
 
 const Buttons:React.FC<ButtonTypes> = ({action, onPress, style})=>{
   return (
-   <TouchableOpacity style={styles.buttonContainer}>
+   <TouchableOpacity>
     <Text 
         style={[styles.button,style]}
         onPress={onPress}
@@ -21,10 +21,6 @@ const Buttons:React.FC<ButtonTypes> = ({action, onPress, style})=>{
 }
 
 const styles = StyleSheet.create({
-    buttonContainer: {
-        // marginTop: 5,
-    },
-
     button: {
         paddingVertical: 20,
         textAlign: "center",

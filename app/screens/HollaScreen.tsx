@@ -1,21 +1,23 @@
 import React from "react";
 // import { Image } from 'expo-image';
 import { StyleSheet, Text, View, Pressable, Image } from "react-native";
+import { Link } from "expo-router";
 
-import { HollaImage, COLORS, SIZES } from "../constants";
-import Buttons from "../components/Buttons";
-import { callIcon, messageIcon } from "../constants/Icons";
+import { HollaImage, COLORS, SIZES } from "../../constants";
+import Buttons from "../../components/Buttons";
+import { callIcon, messageIcon } from "../../constants/Icons";
 
 const HollaScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.skipBtn}>Skip</Text>
+      <Link href={'./FindParkingScreen'}
+      style={styles.skipBtn}>Skip</Link>
 
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={HollaImage} />
       </View>
 
-      <Text style={styles.title}>Welcome</Text>
+      <Text style={styles.title}>Hollaa</Text>
 
       <Text style={styles.landingMsg}>
         Find the best possible parking space nearby your desired destination
@@ -64,7 +66,10 @@ const HollaScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    paddingHorizontal: 30,
+    paddingTop: 80,
+  },
 
   skipBtn: {
     alignSelf: "flex-end",
@@ -79,8 +84,8 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    height: 250,
-    width: 350,
+    // height: 250,
+    // width: 350,
   },
 
   title: {
