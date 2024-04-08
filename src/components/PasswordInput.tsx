@@ -5,6 +5,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 
 interface PasswordProps{
+    onChangeText: (text: string) => void
+    value:string
     text:string
 }
 
@@ -25,10 +27,11 @@ function PasswordInput({text}:PasswordProps) {
                 onChangeText={setPassword}
                 secureTextEntry={!showPassword}
                 value={password}
+                placeholderTextColor="grey"
                  
               
             />
-            <View >
+            <View style={styles.IconView}>
                  <Ionicons
                 onPress={toggleShowPassowrd}
                 name={showPassword ? "eye" : "eye-off"}
@@ -50,15 +53,13 @@ const styles = StyleSheet.create({
     input: {
                
    
-        // width: 200,
-        // height: 60,
+        marginLeft:30,
         borderWidth:0,
-       
-        
         color:COLORS.Grey,
         fontWeight: "200",
        
         fontSize: 18,
+        width:240,
       
         
     },
@@ -67,7 +68,8 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        justifyContent:"space-around",
+        
+
         backgroundColor: "white",
         height: 60,
         width: 311,
@@ -75,10 +77,7 @@ const styles = StyleSheet.create({
         marginBottom:20
     },
     IconView: {
-       height: 65,
-        borderWidth: 1,
-        borderColor: "white",
-        backgroundColor:"white"
+     
     }
 
 

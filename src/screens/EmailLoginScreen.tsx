@@ -7,11 +7,11 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import PasswordInput from '../components/PasswordInput';
 import Data from "../Data/data.json"
 import { useState } from 'react';
-
+import { Link } from 'expo-router'
 
 function EmailLoginScreen() {
     const [email, setEmail] = useState<string>("")
-    const [passowrd, setPassowrd] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
     
     const handleLogin = () => {
         const user = Data.users.find((user) => user.Email === email)
@@ -34,8 +34,8 @@ function EmailLoginScreen() {
             <View style={styles.LowerBig}>
 
                <View style={styles.ViewInput}>
-                <Input text="Email"     onChangeText={setEmail}  value={email}    />
-               <PasswordInput text="Password" />
+                <Input text="Email"     onChangeText={newText => setEmail(newText)}  value={email}    />
+               <PasswordInput text="Password" onChangeText={newText =>setPassword(newText)}  value={password} />
                     <View style={styles.Forget}>
                         <Text style={styles.ForgetText}>Forget password? <Text style={styles.retrieve}>Retrieve</Text></Text>
                     </View>    
@@ -51,7 +51,7 @@ function EmailLoginScreen() {
                     />
                     </View>
                     <View style={styles.LowerLastView}>
-                        <Text style={styles.LastViewFirst}>Don't have an account? <Text style={styles.retrieve}>Sign Up</Text></Text>    
+                        <Text style={styles.LastViewFirst}>Don't have an account?<Link href="/screens/RegisterScreen"><Text style={styles.retrieve}>Sign Up</Text></Link> </Text>    
 
                     </View>
                

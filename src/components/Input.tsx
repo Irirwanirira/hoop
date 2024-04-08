@@ -8,18 +8,18 @@ interface input{
     onChangeText:(text:string)=>void
     value:string
 }
-function Input({text}:input) {
-    const [currentText, setNewText] = React.useState( text )
-    const onChangeText=(newText: string) => {
-        setNewText(newText)
-    }
+function Input({text,onChangeText,value}:input) {
+    
+  
     
     return (
         <SafeAreaView>
             <TextInput
                 style={styles.inputStyle}
-                value={currentText}
+                value={value}
                 onChangeText={onChangeText}
+                placeholder={text}
+                placeholderTextColor="grey"
                 
             
             />
@@ -36,8 +36,7 @@ const styles = StyleSheet.create({
         height: 60,
         marginBottom: 15,
         paddingLeft: 30,
-        color:COLORS.Grey,
-        fontWeight: "200",
+        color:"grey",
         backgroundColor: "white",
         borderRadius: 10,
         fontSize:18

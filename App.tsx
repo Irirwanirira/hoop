@@ -6,15 +6,17 @@ import PhoneScreenLogin from './src/screens/PhoneScreenLogin';
 import RegisterScreen from './src/screens/RegisterScreen';
 import PasswordInput from './src/components/PasswordInput';
 import ContactInput from './src/components/ContactInput';
-
+import PhoneInput from 'react-phone-input-2';
+import PhoneNumberInput from './src/components/PhoneNumberInput';
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
+      {/* <PhoneNumberInput/> */}
       {/* <ContactInput/> */}
       {/* <PasswordInput/> */}
-      {/* <EmailLoginScreen /> */}
+      <EmailLoginScreen />
       {/* <PhoneScreenLogin /> */}
-      <RegisterScreen/>
+      {/* <RegisterScreen/> */}
     </SafeAreaView>
   );
 }
