@@ -1,14 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
 import Input from '../components/Input';
 import LoginButton from '../components/LoginButton';
 import COLORS from '../constants';
+import PasswordInput from '../components/PasswordInput';
+import Data from "../Data/data.json"
+
 
 function RegisterScreen() {
+    const [email, setEmail] = useState<string>("")
+    const [phoneNumber, setPhoneNumber] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
+
+    const newUser = {
+        Email: email,
+        Phone: phoneNumber,
+        Password:password
+        
+    }
+
+    const Register = () => {
+        const newUser = {
+        Email: email,
+        Phone: phoneNumber,
+        Password:password
+        
+    }
+     
+        Data.users.push(newUser)
+        
+    }
+
     return (
         <View style={styles.parent}>
             <View style={styles.upper}>
-                <ImageBackground source={require("../../assets/HeaderImage.png")} style={styles.Image}>
+                <ImageBackground source={require("../../assets/headImage.png")} style={styles.Image}>
                     <View style={styles.IntroView}>
                         <Text style={styles.IntroText}>Let's Start!!</Text>
                     </View>
@@ -17,10 +43,10 @@ function RegisterScreen() {
             <View style={styles.LowerBig}>
 
                <View style={styles.ViewInput}>
-                <Input text="Email" />
-                    <Input text="Password" />
-                    <Input text="Password Authentication" />
-                    <Input text="Phone Number" />
+                 <Input text="Email"     onChangeText={setEmail}  value={email} />
+                 <PasswordInput text="Password" />
+                    <Input text="Password Authentication"  onChangeText={setPassword}  value={password} />
+                    <Input text="Phone Number"  onChangeText={setPhoneNumber}  value={phoneNumber}   />
 
                         
                 
@@ -29,8 +55,8 @@ function RegisterScreen() {
                 <View>
                     <View style={styles.ButtonView}>
                          <LoginButton
-                    title="Login"
-                    onPress={()=>console.log("yes")}
+                    title="Register"
+                    onPress={Register}
                 
                     />
                     </View>
@@ -70,7 +96,7 @@ const styles = StyleSheet.create({
     },
     IntroText: {
         color: COLORS.Secondary,
-        fontSize:26
+        fontSize:32
     },
     upper: {
         height: 150,
@@ -90,7 +116,7 @@ const styles = StyleSheet.create({
         
     },
     LowerBig: {
-        backgroundColor: COLORS.BackgroundColor,
+         backgroundColor: COLORS.AuthBackgroundColor,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         
@@ -101,7 +127,8 @@ const styles = StyleSheet.create({
         flexDirection:"column",
         alignItems: "flex-end",
         justifyContent: "flex-end",
-        width:320
+        width: 320,
+        fontSize:14
           
       },
 
@@ -125,7 +152,8 @@ const styles = StyleSheet.create({
     LowerLastView: {
         display: "flex",
         alignItems:"center",
-        marginBottom:20
+        marginBottom: 20,
+        fontSize:14
     }
 
 })

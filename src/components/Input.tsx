@@ -5,7 +5,8 @@ import COLORS from '../constants';
 
 interface input{
     text: string,
-    
+    onChangeText:(text:string)=>void
+    value:string
 }
 function Input({text}:input) {
     const [currentText, setNewText] = React.useState( text )
@@ -31,16 +32,15 @@ export default Input;
 
 const styles = StyleSheet.create({
     inputStyle: {
-        width: 300,
-        height: 40,
-        borderWidth: 1,
-        borderColor: "white",
+        width: 311,
+        height: 60,
         marginBottom: 15,
         paddingLeft: 30,
         color:COLORS.Grey,
         fontWeight: "200",
         backgroundColor: "white",
-        borderRadius:10
+        borderRadius: 10,
+        fontSize:18
     }
     
 })

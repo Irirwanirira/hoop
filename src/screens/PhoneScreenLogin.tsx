@@ -3,8 +3,12 @@ import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button
 import Input from '../components/Input';
 import LoginButton from '../components/LoginButton';
 import COLORS from '../constants';
+import { useState } from 'react';
+import PasswordInput from '../components/PasswordInput';
 
 function PhoneScreenLogin() {
+     const [email, setEmail] = useState<string>("")
+    const [passowrd, setPassowrd] = useState<string>("")
     return (
          <View style={styles.parent}>
             <View style={styles.upper}>
@@ -17,8 +21,8 @@ function PhoneScreenLogin() {
             <View style={styles.LowerBig}>
 
                <View style={styles.ViewInput}>
-                <Input text="+91" />
-                <Input text="Password" />
+                <Input text="+91"   onChangeText={setEmail}  value={email}              />
+                 <PasswordInput text="Password" />
                     <View style={styles.Forget}>
                         <Text>Forget password? <Text style={styles.retrieve}>Retrieve</Text></Text>
                     </View>    
@@ -65,7 +69,7 @@ const styles = StyleSheet.create({
     },
     IntroText: {
         color: COLORS.Secondary,
-        fontSize:26
+        fontSize:32
     },
     upper: {
         height: 150,
@@ -86,7 +90,7 @@ const styles = StyleSheet.create({
         
     },
     LowerBig: {
-        backgroundColor: COLORS.BackgroundColor,
+        backgroundColor: COLORS.AuthBackgroundColor,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         height:"80%"
@@ -98,7 +102,8 @@ const styles = StyleSheet.create({
         flexDirection:"column",
         alignItems: "flex-end",
         justifyContent: "flex-end",
-        width:320
+        width: 320,
+        fontSize:14
           
       },
 
@@ -125,7 +130,8 @@ const styles = StyleSheet.create({
     LowerLastView: {
         display: "flex",
         alignItems:"center",
-        marginBottom:20
+        marginBottom: 20,
+        fontSize:14
     }
 
 })
