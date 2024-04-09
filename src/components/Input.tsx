@@ -19,7 +19,7 @@ function Input({text,onChangeText,value}:input) {
                 value={value}
                 onChangeText={onChangeText}
                 placeholder={text}
-                placeholderTextColor="grey"
+                placeholderTextColor={COLORS.Grey}
                 
             
             />
@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
         height: 60,
         marginBottom: 15,
         paddingLeft: 30,
-        color:"grey",
+        color: COLORS.Grey,
+        fontWeight: "200",
         backgroundColor: "white",
         borderRadius: 10,
         fontSize:18

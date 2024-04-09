@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
-import Input from '../components/Input';
-import LoginButton from '../components/LoginButton';
-import COLORS from '../constants';
+import Input from '../../components/Input';
+import LoginButton from '../../components/LoginButton';
+import COLORS from '../../constants';
 import { FontAwesome5 } from '@expo/vector-icons';
-import PasswordInput from '../components/PasswordInput';
-import Data from "../Data/data.json"
+import PasswordInput from '../../components/PasswordInput';
+import Data from "../../Data/data.json"
 import { useState } from 'react';
 import { Link } from 'expo-router'
 
@@ -25,7 +25,7 @@ function EmailLoginScreen() {
     return (
         <View style={styles.parent}>
             <View style={styles.upper}>
-                <ImageBackground source={require("../../assets/headImage.png")} style={styles.Image}>
+                <ImageBackground source={require("../../../assets/headImage.png")} style={styles.Image}>
                     <View style={styles.IntroView}>
                         <Text style={styles.IntroText}>Glad to see you!!</Text>
                     </View>
@@ -78,22 +78,24 @@ const styles = StyleSheet.create({
         
         
         marginLeft:30,
-        marginTop:45
+        marginTop:50
         
     },
     IntroText: {
         color: COLORS.Secondary,
-        fontSize:32
+        fontSize: 32,
+        width: 247,
+        height:44
     },
     upper: {
-        height: 150,
+        height:"22%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems:"center"
     },
     Image: {
-        
+       
          width: "100%",
          height:"100%"
         
@@ -106,9 +108,9 @@ const styles = StyleSheet.create({
     },
     LowerBig: {
         backgroundColor: COLORS.AuthBackgroundColor,
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
-        height:"80%"
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        height:"78%"
         
         
     },
@@ -141,7 +143,7 @@ const styles = StyleSheet.create({
          marginTop: 50,
         display: "flex",
         alignItems: "center",
-        marginBottom:50
+        marginBottom:150
     },
     LowerLastView: {
         display: "flex",

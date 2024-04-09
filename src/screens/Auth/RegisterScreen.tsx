@@ -1,46 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
-import Input from '../components/Input';
-import LoginButton from '../components/LoginButton';
-import COLORS from '../constants';
-import { useState } from 'react';
-import PasswordInput from '../components/PasswordInput';
-import PhoneNumberInput from '../components/PhoneNumberInput';
+import Input from '../../components/Input';
+import LoginButton from '../../components/LoginButton';
+import COLORS from '../../constants';
+import PasswordInput from '../../components/PasswordInput';
+import Data from "../../Data/data.json"
 
-function PhoneScreenLogin() {
-     const [email, setEmail] = useState<string>("")
+
+function RegisterScreen() {
+    const [email, setEmail] = useState<string>("")
+    const [phoneNumber, setPhoneNumber] = useState<string>("")
     const [password, setPassword] = useState<string>("")
+
+   
+    const Register = () => {
+        const newUser = {
+        Email: email,
+        Phone: phoneNumber,
+        Password:password
+        
+    }
+     
+        Data.users.push(newUser)
+        console.log(newUser)
+        
+    }
+
     return (
-         <View style={styles.parent}>
+        <View style={styles.parent}>
             <View style={styles.upper}>
-                <ImageBackground source={require("../../assets/headImage.png")} style={styles.Image}>
+                <ImageBackground source={require("../../../assets/headImage.png")} style={styles.Image}>
                     <View style={styles.IntroView}>
-                        <Text style={styles.IntroText}>Glad to see you!!</Text>
+                        <Text style={styles.IntroText}>Let's Start!!</Text>
                     </View>
                 </ImageBackground>
             </View>
             <View style={styles.LowerBig}>
 
-                <View style={styles.ViewInput}>
-                <PhoneNumberInput/>
-                
-                 <PasswordInput text="Password" onChangeText={newText =>setPassword(newText)}  value={password} />
-                    <View style={styles.Forget}>
-                        <Text style={styles.forgetText}>Forget password? <Text style={styles.retrieve}>Retrieve</Text></Text>
-                    </View>    
+               <View style={styles.ViewInput}>
+                    <Input text="Email" onChangeText={setEmail} value={email} />
+                    
+                    <PasswordInput text="Password" onChangeText={newText => setPassword(newText)}  value={password}/>
+                    <Input text="Password Authentication"  onChangeText={newText =>setPassword(newText)}  value={password} />
+                    <Input text="Phone Number"  onChangeText={setPhoneNumber}  value={phoneNumber}   />
+
+                        
                 
 
             </View>
-                <View style={styles.footer}>
+                <View>
                     <View style={styles.ButtonView}>
                          <LoginButton
-                    title="Login"
-                    onPress={()=>console.log("yes")}
+                    title="Register"
+                    onPress={Register}
                 
                     />
                     </View>
                     <View style={styles.LowerLastView}>
-                        <Text style={styles.LowerText}>Don't have an account? <Text style={styles.retrieve}>Sign Up</Text></Text>    
+                        <Text style={styles.LowerText}>Have an account? <Text style={styles.retrieve}>Sign in</Text></Text>    
 
                     </View>
                
@@ -56,17 +73,21 @@ function PhoneScreenLogin() {
             </View>
             
        </View>
+        
     );
 }
 
-export default PhoneScreenLogin;
+export default RegisterScreen;
 
 const styles = StyleSheet.create({
     IntroView: {
-        
         display: "flex",
         marginLeft:30,
-        marginTop:80
+        marginTop:50
+        
+       
+        
+        
         
     },
     IntroText: {
@@ -74,28 +95,28 @@ const styles = StyleSheet.create({
         fontSize:32
     },
     upper: {
-        height: 150,
+        height: "22%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems:"center"
     },
     Image: {
-        width: "100%",
-         height:200
+         width: "100%",
+         height:"100%"
+        
     },
     parent:{
         backgroundColor: COLORS.DarkBlue,
         width: "100%",
         height:"100%"
-       
         
     },
     LowerBig: {
-        backgroundColor: COLORS.AuthBackgroundColor,
+         backgroundColor: COLORS.AuthBackgroundColor,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
-        height:"80%"
+        height:"78%"
         
         
     },
@@ -107,11 +128,7 @@ const styles = StyleSheet.create({
         width: 320,
         fontSize:14
           
-    },
-    forgetText: {
-        color:"grey"
-        
-    },
+      },
 
     ButtonView: {
         display: "flex",
@@ -125,19 +142,16 @@ const styles = StyleSheet.create({
         color:COLORS.Orange
     },
     ViewInput: {
-         marginTop: 50,
+         marginTop: 30,
         display: "flex",
         alignItems: "center",
-        marginBottom:100
-    },
-    footer: {
-        marginTop:30
+        marginBottom:120
     },
     LowerLastView: {
         display: "flex",
         alignItems:"center",
         marginBottom: 20,
-        fontSize:14
+        fontSize:18
     },
     LowerText: {
         color:"grey"

@@ -1,21 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import COLORS from './src/constants';
-import EmailLoginScreen from './src/screens/EmailLoginScreen';
-import PhoneScreenLogin from './src/screens/PhoneScreenLogin';
-import RegisterScreen from './src/screens/RegisterScreen';
+import EmailLoginScreen from './src/screens/Auth/EmailLoginScreen';
+import PhoneScreenLogin from './src/screens/Auth/PhoneScreenLogin';
+import RegisterScreen from './src/screens/Auth/RegisterScreen';
 import PasswordInput from './src/components/PasswordInput';
 import ContactInput from './src/components/ContactInput';
 import PhoneInput from 'react-phone-input-2';
 import PhoneNumberInput from './src/components/PhoneNumberInput';
+import ForgetPasswordScreen from './src/screens/Auth/ForgetPasswordScreen';
+import ForgetScreen from './src/screens/Auth/ForgetScreen';
+import CheckEmailScreen from './src/screens/Auth/CheckEmailScreen';
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView >
       {/* <PhoneNumberInput/> */}
       {/* <ContactInput/> */}
       {/* <PasswordInput/> */}
-      <EmailLoginScreen />
+      {/* <EmailLoginScreen /> */}
       {/* <PhoneScreenLogin /> */}
+      {/* <ForgetPasswordScreen/> */}
+      <CheckEmailScreen/>
       {/* <RegisterScreen/> */}
     </SafeAreaView>
   );

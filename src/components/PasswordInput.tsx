@@ -27,7 +27,7 @@ function PasswordInput({text}:PasswordProps) {
                 onChangeText={setPassword}
                 secureTextEntry={!showPassword}
                 value={password}
-                placeholderTextColor="grey"
+                placeholderTextColor={COLORS.Grey}
                  
               
             />
