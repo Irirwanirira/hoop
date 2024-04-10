@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
-import { Link } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import WelcomeScreen from './screens/LandingPage/WelcomeScreen';
+import { Link } from 'expo-router';
 
 function index() {
         const [isReady, setIsReady] = useState(false)
