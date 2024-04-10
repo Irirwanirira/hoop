@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,TextInput } from 'react-native'
-import COLORS from '../constants';
+import { COLORS } from '../constants';
 
 
 interface input{

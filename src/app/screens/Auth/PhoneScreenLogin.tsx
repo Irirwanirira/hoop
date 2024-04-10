@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
-import Input from '../../components/Input';
-import LoginButton from '../../components/LoginButton';
-import COLORS from '../../constants';
+import Input from '../../../components/Input';
+import LoginButton from '../../../components/LoginButton';
+import { COLORS } from '../../../constants';
 import { useState } from 'react';
-import PasswordInput from '../../components/PasswordInput';
-import PhoneNumberInput from '../../components/PhoneNumberInput';
+import PasswordInput from '../../../components/PasswordInput';
+import PhoneNumberInput from '../../../components/PhoneNumberInput';
 
 function PhoneScreenLogin() {
      const [email, setEmail] = useState<string>("")
@@ -14,7 +14,7 @@ function PhoneScreenLogin() {
          <SafeAreaView  style={styles.container} >
          <View style={styles.parent}>
             <View style={styles.upper}>
-                <ImageBackground source={require("../../../assets/headImage.png")} style={styles.Image}>
+                <ImageBackground source={require("../../../../assets/headImage.png")} style={styles.Image}>
                     <View style={styles.IntroView}>
                         <Text style={styles.IntroText}>Glad to see you!!</Text>
                     </View>

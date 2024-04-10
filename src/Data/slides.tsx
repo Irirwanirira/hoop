@@ -1,4 +1,4 @@
-import { welcomeImage, HollaImage, findParkingImage } from "./constants"
+import { welcomeImage, HollaImage, findParkingImage } from "../constants"
 
 export default [
     {   

@@ -12,15 +12,15 @@ const _layout = () => {
                 headerStyle: {}
             }}
         />
-        <Stack.Screen name= "screens/WelcomeScreen"
+        <Stack.Screen name= "screens/LandingPage/WelcomeScreen"
                 options={{
                 headerTitle: "Welcome screen",
-                headerShown: false,
+                // headerShown: false,
                 // headerStyle: {}
             }}
         />
 
-        <Stack.Screen name= "screens/HollaScreen"
+        <Stack.Screen name= "screens/Auth/EmailLoginScreen"
                 options={{
                 headerTitle: "",
                 headerShown: false,
@@ -28,14 +28,15 @@ const _layout = () => {
             }}
         />
 
-        <Stack.Screen name= "screens/FindParkingScreen"
+        <Stack.Screen name= "screens/Auth/PhoneScreenLogin"
                 options={{
                 headerTitle: "",
-
                 headerShown: false,
                 // headerStyle: {}
             }}
         />
+
+
     </Stack>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, TextInput, Image, FlatList, ImageBackground } from 'react-native'
-import {mall, COLORS, SIZES } from '../../constants'
+import {mall, COLORS, SIZES } from '../../../constants'
 
 const datas = [
     {
@@ -42,7 +42,7 @@ const HomeView = () => {
   return (
     <View style={{backgroundColor: COLORS.Primary}}>
         <ImageBackground 
-        source={require("../../assets/images/maskBackgroundImage.png")}
+        source={require("../../../../assets/images/maskBackgroundImage.png")}
         resizeMode="cover" 
         style={{padding: 40, backgroundColor:"#0A1124"}}>
             <View style={{flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: 40}}>
@@ -60,7 +60,7 @@ const HomeView = () => {
                         gap: 10}}>
                         <Image
                             resizeMode='cover' 
-                            source={require("../../assets/icons/Notification.png")} 
+                            source={require("../../../../assets/icons/Notification.png")} 
                             />
                 </View>
             </View>
@@ -74,7 +74,7 @@ const HomeView = () => {
                 gap: 10}}>
                 <Image
                 resizeMode='cover' 
-                source={require("../../assets/icons/Homesearch.png")} 
+                source={require("../../../../assets/icons/Homesearch.png")} 
                 style={{tintColor: COLORS.Primary, width: 25, backgroundColor: "yellow"}}
                 />
                 <TextInput
@@ -97,28 +97,28 @@ const HomeView = () => {
             <View style={{flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: 20}}>
                 <View style={{backgroundColor: COLORS.Secondary, paddingVertical: 15, paddingHorizontal:30,borderRadius: 10, gap: 10}}>
                     <Image
-                    source={require("../../assets/images/car.png")}
+                    source={require("../../../../assets/images/car.png")}
                     />
                     <Text>Car</Text>
                 </View>
 
                 <View style={{backgroundColor: COLORS.Secondary, paddingVertical: 15, paddingHorizontal:30,borderRadius: 10, gap: 10}}>
                     <Image
-                    source={require("../../assets/images/scooter.png")}
+                    source={require("../../../../assets/images/scooter.png")}
                     />
                     <Text>Bike</Text>
                 </View>
 
                 <View style={{backgroundColor: COLORS.Secondary, paddingVertical: 15, paddingHorizontal:30,borderRadius: 10, gap: 10}}>
                     <Image
-                    source={require("../../assets/images/bus.png")}
+                    source={require("../../../../assets/images/bus.png")}
                     />
                     <Text>Bus</Text>
                 </View>
 
                 <View style={{backgroundColor: COLORS.Secondary, paddingVertical: 15, paddingHorizontal:30,borderRadius: 10, gap: 10}}>
                     <Image
-                    source={require("../../assets/images/van.png")}
+                    source={require("../../../../assets/images/van.png")}
                     />
                     <Text>Van</Text>
                 </View>

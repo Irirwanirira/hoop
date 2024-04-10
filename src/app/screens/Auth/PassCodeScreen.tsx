@@ -9,9 +9,9 @@ function PasscodeScreen() {
         <SafeAreaView style={styles.container}>
         <View style={styles.parent}>
             <View>
-                    <ImageBackground source={require("../../../assets/Ellipse.png")} style={styles.backImage} >
+                    <ImageBackground source={require("../../../../assets/Ellipse.png")} style={styles.backImage} >
                         <View style={styles.ImageView}>
-                            <Image source={require("../../../assets/man.png")} style={ styles.womanImage} />    
+                            <Image source={require("../../../../assets/man.png")} style={ styles.womanImage} />    
 
                         </View>
                     </ImageBackground>
@@ -34,8 +34,8 @@ function PasscodeScreen() {
                       <View  style={styles.scanViewOuter} >
                         <View style={styles.scanView}>
                             {/* <MaterialCommunityIcons name="scan-helper" size={50} color="black" style={styles.Icon} /> */}
-                            <Image source={require("../../../assets/outLine.png") } style={styles.Icon} />
-                           <Image source={ require("../../../assets/Finger.png") } style={styles.fingerprintImage} />
+                            <Image source={require("../../../../assets/outLine.png") } style={styles.Icon} />
+                           <Image source={ require("../../../../assets/Finger.png") } style={styles.fingerprintImage} />
                         </View>
                        </View>
                        

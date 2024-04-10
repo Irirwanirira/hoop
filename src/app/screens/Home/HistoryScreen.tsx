@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, TextInput, Image, FlatList, StyleSheet } from 'react-native'
-import {mall, COLORS, SIZES } from '../../constants'
+import {mall, COLORS, SIZES } from '../../../constants'
+import { filterIcon, locationIcon, searchIcon } from '../../../constants/Icons'
 
 const datas = [
     {
@@ -37,11 +38,11 @@ const CardComponents =({item}: {item: any})=> {
             </View>
             <View style={{flexDirection: "row", gap:20}}>
                 <View style={{flexDirection: "row",  alignItems: "center", gap: 5, backgroundColor: "#FFF3F3", paddingHorizontal: 25, paddingVertical: 10, borderRadius: 10}}>
-                    <Image source={require("../../assets/icons/Location.png")}/>
+                    <Image source={locationIcon}/>
                     <Text style={{color: COLORS.Orange}}>A-6</Text>
                 </View>
                 <View style={{flexDirection: "row",  alignItems: "center", gap: 5, backgroundColor: "#FFF3F3", paddingHorizontal: 25, paddingVertical: 10, borderRadius: 10}}>
-                    <Image source={require("../../assets/icons/Time Circle.png")}/>
+                    <Image source={searchIcon}/>
                     <Text style={{color: COLORS.Orange}}>hours</Text>
                 </View>            
             </View>
@@ -67,7 +68,7 @@ const HistoryScreen = () => {
                 gap: 10}}>
                 <Image
                 resizeMode='cover' 
-                source={require("../../assets/icons/Search.png")} 
+                source={searchIcon} 
                 style={{width: 25, height: 25}}
                 />
                 <TextInput
@@ -86,7 +87,7 @@ const HistoryScreen = () => {
                 gap: 10}}>
                 <Image
                     resizeMode='cover' 
-                    source={require("../../assets/icons/Filter.png")} 
+                    source={filterIcon} 
                     style={{width: 25, height: 25}}
                     />
             </View>

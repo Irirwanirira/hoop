@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
-import Input from '../components/Input';
-import LoginButton from '../components/LoginButton';
-import COLORS from '../constants';
-import PasswordInput from '../components/PasswordInput';
-import Data from "../Data/data.json"
-
+import Input from '../../../components/Input';
+import LoginButton from '../../../components/LoginButton';
+import PasswordInput from '../../../components/PasswordInput';
+import Data from "../../../Data/data.json"
+import { COLORS } from '../../../constants';
 
 function RegisterScreen() {
     const [email, setEmail] = useState<string>("")
@@ -27,9 +26,10 @@ function RegisterScreen() {
     }
 
     return (
+        <SafeAreaView style={styles.container} >
         <View style={styles.parent}>
             <View style={styles.upper}>
-                <ImageBackground source={require("../../assets/headImage.png")} style={styles.Image}>
+                <ImageBackground source={require("../../../../assets/headImage.png")} style={styles.Image}>
                     <View style={styles.IntroView}>
                         <Text style={styles.IntroText}>Let's Start!!</Text>
                     </View>
@@ -73,6 +73,7 @@ function RegisterScreen() {
             </View>
             
        </View>
+      </SafeAreaView>
         
     );
 }
@@ -80,10 +81,18 @@ function RegisterScreen() {
 export default RegisterScreen;
 
 const styles = StyleSheet.create({
+     container: {
+        display: "flex",
+        flexDirection:"row",
+        backgroundColor:"#F4F4FA",
+        justifyContent: 'center',
+        marginTop: 25,
+        height:"100%"
+    },
     IntroView: {
         display: "flex",
         marginLeft:30,
-        marginTop:80
+        marginTop:60
         
        
         
@@ -95,7 +104,7 @@ const styles = StyleSheet.create({
         fontSize:32
     },
     upper: {
-        height: 150,
+        height: "22%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -103,7 +112,7 @@ const styles = StyleSheet.create({
     },
     Image: {
          width: "100%",
-         height:200
+         height:"100%"
         
     },
     parent:{
@@ -116,6 +125,7 @@ const styles = StyleSheet.create({
          backgroundColor: COLORS.AuthBackgroundColor,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
+        height:"78%"
         
         
     },
@@ -144,7 +154,7 @@ const styles = StyleSheet.create({
          marginTop: 30,
         display: "flex",
         alignItems: "center",
-        marginBottom:10
+        marginBottom:120
     },
     LowerLastView: {
         display: "flex",
