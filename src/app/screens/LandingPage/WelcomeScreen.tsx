@@ -30,10 +30,10 @@ SplashScreen.preventAutoHideAsync();
 const WelcomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Link href={"../LandingPage/HollaScreen"} style={styles.skipBtn}>
+      <Link href="/screens/Auth/EmailLoginScreen" 
+      style={styles.skipBtn}>
         <Text>Skip</Text>
       </Link>
-
       <View>
         <OnBoarding />
       </View>
@@ -43,12 +43,11 @@ const WelcomeScreen = () => {
           action={
             <View style={styles.buttonWithIcons}>
               <Image source={messageIcon} />
-              <Link  href="../Auth/EmailLoginScreen">
+              <Link  href={"/screens/Auth/EmailLoginScreen"}>
                 <Text style={{ color: COLORS.Secondary, fontWeight: "900" }}>
                   Login with Email
                 </Text>
               </Link>
-         
             </View>
           }
         />
@@ -58,7 +57,7 @@ const WelcomeScreen = () => {
           action={
             <View style={styles.buttonWithIcons}>
               <Image source={callIcon} />
-              <Link  href="../Auth/PhoneScreenLogin">
+              <Link  href="/screens/Auth/PhoneScreenLogin">
                 <Text style={{ fontWeight: "900", opacity: 0.5 }}>
                   Login with Phone
                 </Text>

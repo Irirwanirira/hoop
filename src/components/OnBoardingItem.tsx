@@ -8,10 +8,10 @@ const OnBoardingItem = ({item}: {item: any}) => {
         <View style={styles.imageContainer}>
             <Image 
             style={styles.image} 
-            source={typeof item.image === "number"? item.image : {url : item.image}} />
+            source={item.image} />
         </View>
 
-        <View style={{}}>
+        <View>
             <Text style={styles.title}>{item.title}</Text>
             <Text style={styles.landingMsg}>{item.intro}</Text>
         </View>

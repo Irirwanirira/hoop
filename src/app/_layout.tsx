@@ -12,6 +12,14 @@ const _layout = () => {
                 headerStyle: {}
             }}
         />
+          <Stack.Screen name= "screens/LandingPage/HollaScreen"
+                options={{
+                headerTitle: "Hollaaaaa",
+                // headerShown: false,
+                // headerStyle: {}
+            }}
+        />
+
         <Stack.Screen name= "screens/LandingPage/WelcomeScreen"
                 options={{
                 headerTitle: "Welcome screen",
