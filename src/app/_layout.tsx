@@ -42,7 +42,14 @@ const _layout = () => {
                 headerShown: false,
                 // headerStyle: {}
             }}
-        />
+      />
+     <Stack.Screen name= "screens/Auth/RegisterScreen"
+                options={{
+                headerTitle: "",
+                headerShown: false,
+                // headerStyle: {}
+            }}
+      />
 
 
     </Stack>
