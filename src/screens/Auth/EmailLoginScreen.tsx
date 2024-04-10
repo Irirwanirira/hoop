@@ -53,18 +53,8 @@ function EmailLoginScreen() {
                     </View>
                     <View style={styles.LowerLastView}>
                         <Text style={styles.LastViewFirst}>Don't have an account?<Link href="/screens/RegisterScreen"><Text style={styles.retrieve}>Sign Up</Text></Link> </Text>    
-
-                    </View>
-               
-                
+                    </View>    
             </View>
-            
-
-
-
-
-
-
             </View>
             
             </View>

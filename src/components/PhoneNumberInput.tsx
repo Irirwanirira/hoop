@@ -14,7 +14,6 @@ function PhoneNumberInput() {
     { label: '+250', value: '+250' },
       { label: '+400', value: '+400' },
      { label: '+62', value: '+62' }
-    // Add more country codes as needed
   ];
 
     return (

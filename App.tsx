@@ -24,8 +24,8 @@ export default function App() {
       {/* <ForgetPasswordScreen/> */}
       {/* <CheckEmailScreen/> */}
       {/* <PasscodeScreen/> */}
-      {/* <VerificationScreen/> */}
-      <RegisterScreen/>
+      <VerificationScreen/>
+      {/* <RegisterScreen/> */}
     </SafeAreaView>
   );
 }

@@ -51,8 +51,6 @@ export default PasswordInput;
 
 const styles = StyleSheet.create({
     input: {
-               
-   
         marginLeft:30,
         borderWidth:0,
         color:COLORS.Grey,
