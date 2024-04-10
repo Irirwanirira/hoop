@@ -18,21 +18,7 @@ import ParkingDetailsScreen from './screens/Home/ParkingDetails';
 
 const HomeScreen = () => {
     const [isReady, setIsReady] = useState(false)
-    // const [fontLoaded, fontError] = useFonts({
-    //     'Avenir': require("../../assets/fonts/AvenirCondensedHand.ttf")
-    //   });
-    // const [isMounted, setIsMounted] = useState(false)
-    // useEffect(()=> {
-    //     setIsMounted(true)
-    // },[])
 
-    // useEffect(()=> {
-    //     if(isMounted){
-    //         setTimeout(()=> {
-    //             router.navigate('./screens/WelcomeScreen')
-    //         }, 1000)
-    //     }
-    // }, [isMounted])
     useEffect(()=> {
         async function prepare() {
             try {
