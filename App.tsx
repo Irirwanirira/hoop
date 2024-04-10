@@ -9,8 +9,10 @@ import ContactInput from './src/components/ContactInput';
 import PhoneInput from 'react-phone-input-2';
 import PhoneNumberInput from './src/components/PhoneNumberInput';
 import ForgetPasswordScreen from './src/screens/Auth/ForgetPasswordScreen';
-import ForgetScreen from './src/screens/Auth/ForgetScreen';
+
 import CheckEmailScreen from './src/screens/Auth/CheckEmailScreen';
+import VerificationScreen from './src/screens/Auth/VerificationScreen';
+import PasscodeScreen from './src/screens/Auth/PassCodeScreen';
 export default function App() {
   return (
     <SafeAreaView >
@@ -20,18 +22,12 @@ export default function App() {
       {/* <EmailLoginScreen /> */}
       {/* <PhoneScreenLogin /> */}
       {/* <ForgetPasswordScreen/> */}
-      <CheckEmailScreen/>
-      {/* <RegisterScreen/> */}
+      {/* <CheckEmailScreen/> */}
+      {/* <PasscodeScreen/> */}
+      {/* <VerificationScreen/> */}
+      <RegisterScreen/>
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-     backgroundColor:COLORS.BackgroundColor,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop:25
-  },
-});
+

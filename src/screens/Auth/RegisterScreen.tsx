@@ -27,6 +27,7 @@ function RegisterScreen() {
     }
 
     return (
+        <SafeAreaView style={styles.container} >
         <View style={styles.parent}>
             <View style={styles.upper}>
                 <ImageBackground source={require("../../../assets/headImage.png")} style={styles.Image}>
@@ -73,6 +74,7 @@ function RegisterScreen() {
             </View>
             
        </View>
+      </SafeAreaView>
         
     );
 }
@@ -80,10 +82,18 @@ function RegisterScreen() {
 export default RegisterScreen;
 
 const styles = StyleSheet.create({
+     container: {
+        display: "flex",
+        flexDirection:"row",
+        backgroundColor:"#F4F4FA",
+        justifyContent: 'center',
+        marginTop: 25,
+        height:"100%"
+    },
     IntroView: {
         display: "flex",
         marginLeft:30,
-        marginTop:50
+        marginTop:60
         
        
         

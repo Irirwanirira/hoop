@@ -23,6 +23,7 @@ function EmailLoginScreen() {
     }
 
     return (
+        <SafeAreaView style={styles.container}>
         <View style={styles.parent}>
             <View style={styles.upper}>
                 <ImageBackground source={require("../../../assets/headImage.png")} style={styles.Image}>
@@ -66,13 +67,22 @@ function EmailLoginScreen() {
 
             </View>
             
-       </View>
+            </View>
+            </SafeAreaView>
     );
 }
 
 export default EmailLoginScreen;
 
 const styles = StyleSheet.create({
+      container: {
+        display: "flex",
+        flexDirection:"row",
+        backgroundColor:"#F4F4FA",
+        justifyContent: 'center',
+        marginTop: 25,
+        height:"100%"
+    },
     IntroView: {
         
         

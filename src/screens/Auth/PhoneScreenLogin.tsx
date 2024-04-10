@@ -11,6 +11,7 @@ function PhoneScreenLogin() {
      const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     return (
+         <SafeAreaView  style={styles.container} >
          <View style={styles.parent}>
             <View style={styles.upper}>
                 <ImageBackground source={require("../../../assets/headImage.png")} style={styles.Image}>
@@ -55,13 +56,23 @@ function PhoneScreenLogin() {
 
             </View>
             
-       </View>
+            </View>
+            </SafeAreaView>
     );
 }
 
 export default PhoneScreenLogin;
 
 const styles = StyleSheet.create({
+      container: {
+        display: "flex",
+        flexDirection:"row",
+        backgroundColor:"#F4F4FA",
+        justifyContent: 'center',
+        marginTop: 25,
+        height:"100%"
+    },
+
     IntroView: {
         
         display: "flex",
