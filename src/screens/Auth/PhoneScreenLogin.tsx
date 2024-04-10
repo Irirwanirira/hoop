@@ -1,14 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
-import Input from '../components/Input';
-import LoginButton from '../components/LoginButton';
-import COLORS from '../constants';
+import Input from '../../components/Input';
+import LoginButton from '../../components/LoginButton';
+import COLORS from '../../constants';
+import { useState } from 'react';
+import PasswordInput from '../../components/PasswordInput';
+import PhoneNumberInput from '../../components/PhoneNumberInput';
 
 function PhoneScreenLogin() {
+     const [email, setEmail] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
     return (
+         <SafeAreaView  style={styles.container} >
          <View style={styles.parent}>
             <View style={styles.upper}>
-                <ImageBackground source={require("../../assets/HeaderImage.png")} style={styles.Image}>
+                <ImageBackground source={require("../../../assets/headImage.png")} style={styles.Image}>
                     <View style={styles.IntroView}>
                         <Text style={styles.IntroText}>Glad to see you!!</Text>
                     </View>
@@ -16,11 +22,12 @@ function PhoneScreenLogin() {
             </View>
             <View style={styles.LowerBig}>
 
-               <View style={styles.ViewInput}>
-                <Input text="+91" />
-                <Input text="Password" />
+                <View style={styles.ViewInput}>
+                <PhoneNumberInput/>
+                
+                 <PasswordInput text="Password" onChangeText={newText =>setPassword(newText)}  value={password} />
                     <View style={styles.Forget}>
-                        <Text>Forget password? <Text style={styles.retrieve}>Retrieve</Text></Text>
+                        <Text style={styles.forgetText}>Forget password? <Text style={styles.retrieve}>Retrieve</Text></Text>
                     </View>    
                 
 
@@ -34,7 +41,7 @@ function PhoneScreenLogin() {
                     />
                     </View>
                     <View style={styles.LowerLastView}>
-                        <Text>Don't have an account? <Text style={styles.retrieve}>Sign Up</Text></Text>    
+                        <Text style={styles.LowerText}>Don't have an account? <Text style={styles.retrieve}>Sign Up</Text></Text>    
 
                     </View>
                
@@ -49,13 +56,23 @@ function PhoneScreenLogin() {
 
             </View>
             
-       </View>
+            </View>
+            </SafeAreaView>
     );
 }
 
 export default PhoneScreenLogin;
 
 const styles = StyleSheet.create({
+      container: {
+        display: "flex",
+        flexDirection:"row",
+        backgroundColor:"#F4F4FA",
+        justifyContent: 'center',
+        marginTop: 25,
+        height:"100%"
+    },
+
     IntroView: {
         
         display: "flex",
@@ -65,10 +82,10 @@ const styles = StyleSheet.create({
     },
     IntroText: {
         color: COLORS.Secondary,
-        fontSize:26
+        fontSize:32
     },
     upper: {
-        height: 150,
+        height:"22%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -86,10 +103,10 @@ const styles = StyleSheet.create({
         
     },
     LowerBig: {
-        backgroundColor: COLORS.BackgroundColor,
+        backgroundColor: COLORS.AuthBackgroundColor,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
-        height:"80%"
+        height:"78%"
         
         
     },
@@ -98,9 +115,15 @@ const styles = StyleSheet.create({
         flexDirection:"column",
         alignItems: "flex-end",
         justifyContent: "flex-end",
-        width:320
+        width: 320,
+        fontSize:14
           
-      },
+    },
+    forgetText: {
+        color: "grey",
+        fontSize:14
+        
+    },
 
     ButtonView: {
         display: "flex",
@@ -111,21 +134,27 @@ const styles = StyleSheet.create({
         
     },
     retrieve: {
-        color:COLORS.Orange
+        color: COLORS.Orange,
+        fontSize:14
     },
     ViewInput: {
          marginTop: 50,
         display: "flex",
         alignItems: "center",
-        marginBottom:100
+        marginBottom:200
     },
     footer: {
-        marginTop:80
+        marginTop:30
     },
     LowerLastView: {
         display: "flex",
         alignItems:"center",
-        marginBottom:20
+        marginBottom: 20,
+        fontSize:14
+    },
+    LowerText: {
+        color: "grey",
+        fontSize:14
     }
 
 })

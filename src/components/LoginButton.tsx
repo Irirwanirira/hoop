@@ -22,8 +22,8 @@ export default LoginButton;
 
 const styles = StyleSheet.create({
     btn: {
-        width: 200,
-        height: 40,
+        width: 311,
+        height: 60,
         backgroundColor:COLORS.DarkBlue,
         display: "flex",
         justifyContent: "center",
@@ -32,8 +32,8 @@ const styles = StyleSheet.create({
     },
     text: {
         color: "white",
-        fontWeight: "bold",
-        fontSize:16
+        fontWeight: "500",
+        fontSize:20
     }
 
 })
