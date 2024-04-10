@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import COLORS from './src/constants';
 import EmailLoginScreen from './src/screens/Auth/EmailLoginScreen';
 import PhoneScreenLogin from './src/screens/Auth/PhoneScreenLogin';
 import RegisterScreen from './src/screens/Auth/RegisterScreen';
