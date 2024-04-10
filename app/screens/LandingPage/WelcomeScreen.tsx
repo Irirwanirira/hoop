@@ -18,12 +18,12 @@ import {
   findParkingImage,
   COLORS,
   SIZES,
-} from "../../constants";
-import Buttons from "../../components/Buttons";
-import { callIcon, messageIcon } from "../../constants/Icons";
+} from "../../../constants";
+import Buttons from "../../../components/Buttons";
+import { callIcon, messageIcon } from "../../../constants/Icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link } from "expo-router";
-import OnBoarding from "../../components/OnBoarding";
+import OnBoarding from "../../../components/OnBoarding";
 
 SplashScreen.preventAutoHideAsync();
 

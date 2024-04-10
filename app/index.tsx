@@ -7,8 +7,14 @@ import { Link, router, useLocalSearchParams, usePathname } from 'expo-router'
 import { SafeAreaView, StyleSheet, Text, View, Pressable} from 'react-native';
 import { useEffect } from 'react';
 
-import WelcomeScreen from '../app/screens/WelcomeScreen';
+import WelcomeScreen from './screens/LandingPage/WelcomeScreen';
 import {COLORS} from '../constants';
+import ExploreScreen from './screens/ExploreScreen';
+import HistoryScreen from './screens/HistoryScreen';
+import HomeView from './screens/HomeView';
+import ProfileScreen from './screens/Home/ProfileScreen';
+import DetailCategoryScreen from './screens/Home/DetailCategoryScreen';
+import ParkingDetailsScreen from './screens/Home/ParkingDetails';
 
 const HomeScreen = () => {
     const [isReady, setIsReady] = useState(false)
@@ -55,7 +61,7 @@ const HomeScreen = () => {
         <View 
         onLayout={onLayoutViewRootView}
         style={styles.container}>
-            <WelcomeScreen />
+            <ParkingDetailsScreen />
         </View>
     );
 }
@@ -64,8 +70,8 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: "#EBEBEB",
-      paddingHorizontal: 30,
-      paddingVertical: 40,
+    //   paddingHorizontal: 30,
+    //   paddingVertical: 40,
     },
   });
 export default HomeScreen

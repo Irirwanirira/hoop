@@ -3,9 +3,9 @@ import React from "react";
 import { StyleSheet, Text, View, Pressable, Image } from "react-native";
 import { Link } from "expo-router";
 
-import { HollaImage, COLORS, SIZES } from "../../constants";
-import Buttons from "../../components/Buttons";
-import { callIcon, messageIcon } from "../../constants/Icons";
+import { HollaImage, COLORS, SIZES } from "../../../constants";
+import Buttons from "../../../components/Buttons";
+import { callIcon, messageIcon } from "../../../constants/Icons";
 
 const HollaScreen = () => {
   return (

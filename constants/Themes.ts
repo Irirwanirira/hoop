@@ -12,6 +12,8 @@ const COLORS = {
 const SIZES = {
     small_sm: 14,
     medium: 16,
+    medium_18: 18,
+    medium_m:20,
     large: 24,
 }
 
