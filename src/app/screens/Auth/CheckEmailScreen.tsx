@@ -5,9 +5,9 @@ function CheckEmailScreen() {
         <SafeAreaView style={styles.container}>
         <View style={styles.parent}>
             <View>
-                    <ImageBackground source={require("../../../assets/Ellipse.png")} style={styles.backImage} >
+                    <ImageBackground source={require("../../../../assets/Ellipse.png")} style={styles.backImage} >
                         <View style={styles.ImageView}>
-                            <Image source={require("../../../assets/woman.png")} style={ styles.womanImage} />    
+                            <Image source={require("../../../../assets/woman.png")} style={ styles.womanImage} />    
 
                         </View>
                     </ImageBackground>

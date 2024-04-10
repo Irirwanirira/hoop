@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
-import COLORS from '../../constants';
-import Input from '../../components/Input';
-import LoginButton from '../../components/LoginButton';
+import { COLORS } from '../../../constants';
+import Input from '../../../components/Input';
+import LoginButton from '../../../components/LoginButton';
 function ForgetPasswordScreen() {
     const [email, setEmail] = useState<string>("")
 

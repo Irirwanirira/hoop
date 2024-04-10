@@ -30,8 +30,8 @@ SplashScreen.preventAutoHideAsync();
 const WelcomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Link href={"../screens/HollaScreen"} style={styles.skipBtn}>
-        Skip
+      <Link href={"../LandingPage/HollaScreen"} style={styles.skipBtn}>
+        <Text>Skip</Text>
       </Link>
 
       <View>
@@ -43,9 +43,12 @@ const WelcomeScreen = () => {
           action={
             <View style={styles.buttonWithIcons}>
               <Image source={messageIcon} />
-              <Text style={{ color: COLORS.Secondary, fontWeight: "900" }}>
-                Login with Email
-              </Text>
+              <Link  href="../Auth/EmailLoginScreen">
+                <Text style={{ color: COLORS.Secondary, fontWeight: "900" }}>
+                  Login with Email
+                </Text>
+              </Link>
+         
             </View>
           }
         />
@@ -55,9 +58,11 @@ const WelcomeScreen = () => {
           action={
             <View style={styles.buttonWithIcons}>
               <Image source={callIcon} />
-              <Text style={{ fontWeight: "900", opacity: 0.5 }}>
-                Login with Phone
-              </Text>
+              <Link  href="../Auth/PhoneScreenLogin">
+                <Text style={{ fontWeight: "900", opacity: 0.5 }}>
+                  Login with Phone
+                </Text>
+              </Link>
             </View>
           }
         />
@@ -75,7 +80,8 @@ const WelcomeScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex'
+      paddingHorizontal: 30,
+      paddingVertical: 40,
   },
 
   skipBtn: {

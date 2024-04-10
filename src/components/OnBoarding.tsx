@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { View, Text, StyleSheet, FlatList, Animated } from "react-native";
 
-import slides from "../slides";
+import slides from "../Data/slides"
 import OnBoardingItem from "./OnBoardingItem";
 import Paginator from "./Paginator";
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions, Pressable } from 'react-native'
-import COLORS from '../constants';
+import { COLORS } from '../constants';
 interface pass {
     title: string,
     onPress: () => void,

@@ -3,7 +3,6 @@ import { View, TextInput, StyleSheet, SafeAreaView } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
 
-
 function PhoneNumberInput() {
    
     

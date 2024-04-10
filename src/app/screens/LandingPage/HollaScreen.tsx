@@ -11,7 +11,10 @@ const HollaScreen = () => {
   return (
     <View style={styles.container}>
       <Link href={'./FindParkingScreen'}
-      style={styles.skipBtn}>Skip</Link>
+      style={styles.skipBtn}>
+                <Text>Skip</Text>
+
+        </Link>
 
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={HollaImage} />

@@ -1,6 +1,8 @@
 import React from 'react'
 import { View, Text, TextInput, Image, FlatList, StyleSheet } from 'react-native'
-import {mall, COLORS, SIZES } from '../../constants'
+import {mall, COLORS, SIZES } from '../../../constants'
+import { locationIcon, searchIcon } from '../../../constants/Icons'
+import { exploreImage } from '../../../constants/Images'
 
 const datas = [
     {
@@ -60,7 +62,7 @@ const ExploreScreen = () => {
             gap: 10}}>
             <Image
             resizeMode='cover' 
-            source={require("../../assets/icons/Search.png")} 
+            source={searchIcon} 
             style={{borderColor: COLORS.Primary}}
             />
             <TextInput
@@ -71,7 +73,7 @@ const ExploreScreen = () => {
 
         <View style={{flexDirection: "row", alignItems: "center", gap: 20, marginTop: 40, }}>
             <Image 
-            source={require("../../assets/images/explore.png")}
+            source={exploreImage}
             />
             <Text style={{opacity: 0.3}}>Most popular most wanted</Text>
         </View>
@@ -82,7 +84,7 @@ const ExploreScreen = () => {
             renderItem={({item}) => <CardComponents item={item}  />}
             />
             <View style={{position: "absolute", bottom: 0, right: 0}}>
-                <Image source={require("../../assets/images/locationBtn.png")}/>
+                <Image source={locationIcon}/>
             </View>
         </View>
     </View>

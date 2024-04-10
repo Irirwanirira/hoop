@@ -6,7 +6,9 @@ const OnBoardingItem = ({item}: {item: any}) => {
     <View style={[styles.container,{width: 400}]}>
 
         <View style={styles.imageContainer}>
-            <Image style={styles.image} source={item.image} />
+            <Image 
+            style={styles.image} 
+            source={typeof item.image === "number"? item.image : {url : item.image}} />
         </View>
 
         <View style={{}}>
