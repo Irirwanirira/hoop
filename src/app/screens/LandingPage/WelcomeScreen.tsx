@@ -71,7 +71,7 @@ const WelcomeScreen = () => {
         style={{ textAlign: "center", marginTop: 40, fontSize: SIZES.small_sm }}
       >
         Don't have an account?{" "}
-        <Text style={{ color: COLORS.Orange }}> Sign Up</Text>
+        <Link href={"/screens/Auth/RegisterScreen"} style={{ color: COLORS.Orange }}> Sign Up</Link>
       </Text>
     </SafeAreaView>
   );
