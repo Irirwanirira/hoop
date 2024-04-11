@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
+import { router, useNavigation } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from '../../../constants';
 import Input from '../../../components/Input';
 import LoginButton from '../../../components/LoginButton';
 function ForgetPasswordScreen() {
     const [email, setEmail] = useState<string>("")
+    const navigate=useNavigation()
 
     return (
         <SafeAreaView style={styles.container}>
@@ -35,7 +37,7 @@ function ForgetPasswordScreen() {
                     <View>
                          <LoginButton
                         title="Send"
-                        onPress={()=> console.log("login")}
+                        onPress={()=>router.push("/screens/Auth/CheckEmailScreen")}
                     
                         />
 

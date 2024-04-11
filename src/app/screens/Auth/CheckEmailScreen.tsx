@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import React from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground, Pressable } from 'react-native'
 function CheckEmailScreen() {
@@ -20,7 +21,7 @@ function CheckEmailScreen() {
                            <View style={styles.IntroTextView}><Text  style={styles.IntroText3}>email</Text></View>
                         </View>
                         <View style={styles.btnView}>
-                            <Pressable style={styles.btn}>
+                            <Pressable style={styles.btn} onPress={()=> router.push("/screens/Auth/VerificationScreen")}>
                                 <Text style={styles.btnText}>Open Email App</Text>
                             </Pressable>
                         </View>

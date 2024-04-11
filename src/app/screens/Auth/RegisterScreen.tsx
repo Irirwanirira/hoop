@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
+import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions, ImageBackground } from 'react-native'
+import { Link } from 'expo-router';
 import Input from '../../../components/Input';
 import LoginButton from '../../../components/LoginButton';
 import PasswordInput from '../../../components/PasswordInput';
@@ -57,7 +58,7 @@ function RegisterScreen() {
                     />
                     </View>
                     <View style={styles.LowerLastView}>
-                        <Text style={styles.LowerText}>Have an account? <Text style={styles.retrieve}>Sign in</Text></Text>    
+                        <Text style={styles.LowerText}>Have an account? <Link href="/screens/Auth/EmailLoginScreen"><Text style={styles.retrieve}>Sign in</Text></Link></Text>    
 
                     </View>
                

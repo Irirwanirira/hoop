@@ -38,7 +38,7 @@ function EmailLoginScreen() {
                 <Input text="Email"     onChangeText={newText => setEmail(newText)}  value={email}    />
                <PasswordInput text="Password" onChangeText={newText =>setPassword(newText)}  value={password} />
                     <View style={styles.Forget}>
-                        <Text style={styles.ForgetText}>Forget password? <Text style={styles.retrieve}>Retrieve</Text></Text>
+                        <Text style={styles.ForgetText}>Forget password? <Link href="/screens/Auth/ForgetPasswordScreen"><Text style={styles.retrieve}>Retrieve</Text></Link></Text>
                     </View>    
                 
 

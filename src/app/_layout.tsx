@@ -50,7 +50,34 @@ const _layout = () => {
                 // headerStyle: {}
             }}
       />
-
+       <Stack.Screen name= "screens/Auth/ForgetPasswordScreen"
+                options={{
+                headerTitle: "",
+                headerShown: false,
+                // headerStyle: {}
+            }}
+      />
+     <Stack.Screen name= "screens/Auth/VerificationScreen"
+                options={{
+                headerTitle: "",
+                headerShown: false,
+                // headerStyle: {}
+            }}
+      />
+      <Stack.Screen name= "screens/Auth/PassCodeScreen"
+                options={{
+                headerTitle: "",
+                headerShown: false,
+                // headerStyle: {}
+            }}
+      />
+       <Stack.Screen name= "screens/Auth/CheckEmailScreen"
+                options={{
+                headerTitle: "",
+                headerShown: false,
+                // headerStyle: {}
+            }}
+      />
 
     </Stack>
   )
