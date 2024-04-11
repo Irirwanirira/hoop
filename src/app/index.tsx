@@ -3,6 +3,9 @@ import { View, Text, Pressable, StyleSheet } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import WelcomeScreen from './screens/LandingPage/WelcomeScreen';
 import { Link } from 'expo-router';
+import BookDetailsScreen from './screens/Home/BookDetails';
+import PaymentDetailsScreen from './screens/Home/PaymentDetailsScreen';
+import ParkingRouteScreen from './screens/Home/ParkingRouteScreen';
 
 function index() {
         const [isReady, setIsReady] = useState(false)
@@ -35,7 +38,8 @@ function index() {
             <View 
             onLayout={onLayoutViewRootView}
             style={styles.container}>
-                <WelcomeScreen  />
+                {/* <WelcomeScreen  /> */}
+                <PaymentDetailsScreen />
             </View>
         );
 }
@@ -44,8 +48,6 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: "#EBEBEB",
-    //   paddingHorizontal: 30,
-    //   paddingVertical: 40,
     },
   });
 export default index;

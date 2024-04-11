@@ -15,11 +15,20 @@ import headphoneIcon from "../../assets/icons/headphoneIcon.png"
 import rightIcon from "../../assets/icons/toTheRigthIcon.png" 
 import filterWithBackground from "../../assets/icons/filtterWithBackground.png" 
 import leftArrowWithBackground from "../../assets/icons/leftArrowWithBackground.png" 
-import currentLocationIcon from "../../assets/icons/currentLocationIcon.png" 
-
+import currentLocationIcon from "../../assets/icons/currentLocationIcon.png"
+import activityIcon from "../../assets/icons/ActivityIcon.png"
+import switchIcon from "../../assets/icons/switchIcon.png" 
+import masterCardIcon from "../../assets/icons/masterCardIcon.png" 
+import visaIcon from "../../assets/icons/visaIcon.png" 
+import chatIcon from "../../assets/icons/redChatIcon.png" 
+import redMessageIcon from "../../assets/icons/redMessageIcon.png" 
+import fluentArrowIcon from "../../assets/icons/fluent_arrowIcon.png" 
 
 
 export {
+    chatIcon,
+    fluentArrowIcon,
+    redMessageIcon,
     currentLocationIcon,
     profileIcon,
     discountIcon,
@@ -37,5 +46,9 @@ export {
     logoutIcon,
     rightIcon,
     filterWithBackground,
-    leftArrowWithBackground 
+    leftArrowWithBackground,
+    activityIcon,
+    switchIcon,
+    visaIcon,
+    masterCardIcon,
 }

@@ -7,6 +7,13 @@ import dianaImage from "../../assets/images/dianaImage.png";
 import exploreImage from "../../assets/images/explore.png" 
 import locationImage from "../../assets/images/locationBtn.png"
 import parkDetailImage from "../../assets/images/parkDetail.png"
+import SuccessImage from "../../assets/images/successImage.png"
+import SuccessEllipseImage from "../../assets/images/successElipseImage.png"
+import RouteImage from "../../assets/images/routeImage.png"
+
+
+
+
 
 
 
@@ -19,5 +26,8 @@ export {
     locationImage, 
     dianaImage, 
     exploreImage, 
-    parkDetailImage
+    parkDetailImage,
+    SuccessEllipseImage,
+    SuccessImage,
+    RouteImage,
 };
