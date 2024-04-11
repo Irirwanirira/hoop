@@ -8,10 +8,12 @@ import ContactInput from './src/components/ContactInput';
 import PhoneInput from 'react-phone-input-2';
 import PhoneNumberInput from './src/components/PhoneNumberInput';
 import ForgetPasswordScreen from './src/app/screens/Auth/ForgetPasswordScreen';
-
 import CheckEmailScreen from './src/app/screens/Auth/CheckEmailScreen';
 import VerificationScreen from './src/app/screens/Auth/VerificationScreen';
 import PasscodeScreen from './src/app/screens/Auth/PassCodeScreen';
+import OrderNotification from './src/components/OrderNotification';
+import NotificationScreen from './src/app/screens/Notification/NotificationScreen';
+import UpgradeScreen from './src/app/screens/Plan/UpgradeScreen';
 export default function App() {
   return (
     <SafeAreaView >
@@ -23,8 +25,11 @@ export default function App() {
       {/* <ForgetPasswordScreen/> */}
       {/* <CheckEmailScreen/> */}
       {/* <PasscodeScreen/> */}
-      <VerificationScreen/>
+      {/* <VerificationScreen/> */}
       {/* <RegisterScreen/> */}
+      <UpgradeScreen/>
+      {/* <NotificationScreen/> */}
+      {/* <OrderNotification/> */}
     </SafeAreaView>
   );
 }
