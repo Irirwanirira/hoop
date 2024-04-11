@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
 import { router, useNavigation } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-
+import PlanFeature from '../../../components/PlanFeature';
 
 
 function UpgradeScreen() {
@@ -18,8 +18,24 @@ function UpgradeScreen() {
                 </View>
              </View>
             <View style={styles.explainView}>
-                 <View style={styles.explainText}></View>   
-            </View>
+                    <View style={styles.explainTextView}><Text style={styles.explainText} >Get all the facilities</Text></View> 
+                    <View style={styles.explainTextView}><Text style={styles.explainText}   >by upgrading your</Text></View> 
+                    <View style={styles.explainTextView}><Text  style={styles.explainText}  >account</Text></View> 
+             </View>
+            <View style={styles.featureOuter}>
+              <View style={styles.categoryView}>
+                <Text style={styles.categoryText}>Pro</Text>    
+                </View>
+                 <View style={styles.availableFeatures}>
+                        <PlanFeature text="All includes" /> 
+                        <PlanFeature text="Unlimited feature" /> 
+                        <PlanFeature text="Discount every reservation" /> 
+                        <PlanFeature text="All includes" /> 
+                        <PlanFeature text="All includes" /> 
+                        <PlanFeature text="All includes"/> 
+                 </View>  
+                    
+             </View>  
                 
                 
             
@@ -81,9 +97,41 @@ const styles = StyleSheet.create({
         // width:"70%"
     },
     explainView: {
+        marginTop: 50,
+        marginBottom:50
+    },
+    explainTextView: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems:"center"
         
     },
     explainText: {
+        color: "#2D2D2D",
+        fontSize:24
+    },
+    featureOuter: {
+        backgroundColor: "white",
+        width: 259,
+        height: 372,
+        borderRadius:20
+    },
+    categoryView: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: 'center',
+        marginTop: 30,
+        marginBottom:20
+        
+    },
+    categoryText: {
+        color: "#2D2D2D",
+        fontSize:22
+    },
+    availableFeatures: {
+        width:"80%"
         
     }
     

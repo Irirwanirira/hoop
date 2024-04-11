@@ -14,7 +14,7 @@ function PlanFeature({text}:planFeatureProps){
                 <AntDesign name="checksquare" size={24} color="red" />
             </View>
             <View style={styles.textView}>
-                <Text>{text }</Text>
+                <Text style={styles.text}>{text }</Text>
             </View>
         </View>
     );
@@ -26,9 +26,10 @@ const styles = StyleSheet.create({
     outer: {
         display: "flex",
         flexDirection: "row",
-        justifyContent: "center",
+        marginLeft:10,
         alignItems: 'center',
-        gap:20
+        gap: 10,
+        marginBottom:20
         
     },
 
@@ -38,6 +39,10 @@ const styles = StyleSheet.create({
     },
     textView: {
         
+    },
+    text: {
+        color: "black",
+        fontSize:16
     }
     
 })
