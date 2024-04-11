@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
+import { Link } from 'expo-router';
 import Input from '../../../components/Input';
 import LoginButton from '../../../components/LoginButton';
 import { COLORS } from '../../../constants';
@@ -27,7 +28,7 @@ function PhoneScreenLogin() {
                 
                  <PasswordInput text="Password" onChangeText={newText =>setPassword(newText)}  value={password} />
                     <View style={styles.Forget}>
-                        <Text style={styles.forgetText}>Forget password? <Text style={styles.retrieve}>Retrieve</Text></Text>
+                        <Text style={styles.forgetText}>Forget password? <Link href="/screens/Auth/ForgetPasswordScreen"><Text style={styles.retrieve}>Retrieve</Text></Link></Text>
                     </View>    
                 
 
@@ -41,7 +42,7 @@ function PhoneScreenLogin() {
                     />
                     </View>
                     <View style={styles.LowerLastView}>
-                        <Text style={styles.LowerText}>Don't have an account? <Text style={styles.retrieve}>Sign Up</Text></Text>    
+                        <Text style={styles.LowerText}>Don't have an account? <Link href="/screens/Auth/RegisterScreen"><Text style={styles.retrieve}>Sign Up</Text></Link></Text>    
 
                     </View>
                
