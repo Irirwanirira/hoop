@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
+import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground,ScrollView } from 'react-native'
 import { router, useNavigation } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import PlanFeature from '../../../components/PlanFeature';
-
+import PlanBtn from '../../../components/PlanBtn';
 
 function UpgradeScreen() {
     return (
@@ -21,8 +21,46 @@ function UpgradeScreen() {
                     <View style={styles.explainTextView}><Text style={styles.explainText} >Get all the facilities</Text></View> 
                     <View style={styles.explainTextView}><Text style={styles.explainText}   >by upgrading your</Text></View> 
                     <View style={styles.explainTextView}><Text  style={styles.explainText}  >account</Text></View> 
-             </View>
+                </View>
+                <ScrollView
+                    style={styles.scroll}
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={{
+                    alignItems: 'center', // Centers items vertically in the ScrollView
+                    paddingStart: 20, // Padding at the start of the ScrollView
+                    paddingEnd: 20, // Padding at the end of the ScrollView
+                }}
+                >
             <View style={styles.featureOuter}>
+              <View style={styles.categoryView}>
+                <Text style={styles.categoryText}>Basic</Text>    
+                </View>
+                 <View style={styles.availableFeatures}>
+                        <PlanFeature text="All includes" /> 
+                        <PlanFeature text="Unlimited feature" /> 
+                        <PlanFeature text="Discount every reservation" /> 
+                        <PlanFeature text="All includes" /> 
+                        <PlanFeature text="All includes" /> 
+                        <PlanFeature text="All includes"/> 
+                 </View>  
+                    
+                </View>
+             <View style={styles.featureOuter}>
+              <View style={styles.categoryView}>
+                <Text style={styles.categoryText}>Advanced</Text>    
+                </View>
+                 <View style={styles.availableFeatures}>
+                        <PlanFeature text="All includes" /> 
+                        <PlanFeature text="Unlimited feature" /> 
+                        <PlanFeature text="Discount every reservation" /> 
+                        <PlanFeature text="All includes" /> 
+                        <PlanFeature text="All includes" /> 
+                        <PlanFeature text="All includes"/> 
+                 </View>  
+                    
+                </View>
+                 <View style={styles.featureOuter}>
               <View style={styles.categoryView}>
                 <Text style={styles.categoryText}>Pro</Text>    
                 </View>
@@ -36,8 +74,14 @@ function UpgradeScreen() {
                  </View>  
                     
              </View>  
-                
-                
+                    
+             </ScrollView>   
+             <View style={styles.btnView}>
+                 <PlanBtn
+                    title="Choose a plan"
+                    functionAction={()=>console.log("choose")}
+                 />   
+             </View>   
             
 
         </View>
@@ -70,8 +114,8 @@ const styles = StyleSheet.create({
     upper: {
         display: "flex",
         flexDirection: "row",
-        
-        marginBottom:50
+        marginBottom: 20,
+        width: "100%",
     },
     IconView: {
         width: 44,
@@ -81,7 +125,8 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        zIndex:1000
+        zIndex: 1000,
+         marginLeft: 20,
     },
     upgradeText: {
         color: "#2D2D2D",
@@ -93,11 +138,12 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent: "center",
         alignItems: "center",
-        flex:1
+        width:"70%"
+        
         // width:"70%"
     },
     explainView: {
-        marginTop: 50,
+        marginTop: 20,
         marginBottom:50
     },
     explainTextView: {
@@ -115,7 +161,10 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         width: 259,
         height: 372,
-        borderRadius:20
+        borderRadius: 20,
+        marginLeft: 15,
+        marginRight:15
+        
     },
     categoryView: {
         display: "flex",
@@ -133,6 +182,15 @@ const styles = StyleSheet.create({
     availableFeatures: {
         width:"80%"
         
+    },
+    scroll: {
+        flexGrow: 0,
+        marginBottom:30
+    },
+    btnView: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems:"center"
     }
     
 })
