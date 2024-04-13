@@ -16,6 +16,7 @@ import NotificationScreen from './src/app/screens/Notification/NotificationScree
 import UpgradeScreen from './src/app/screens/Plan/UpgradeScreen';
 import PaymentTF from './src/components/PaymentTF';
 import SelectPlanScreen from './src/app/screens/Plan/SelectPlanScreen';
+import EditProfileScreen from './src/app/screens/EditProfile/EditProfileScreen';
 export default function App() {
   return (
     <SafeAreaView >
@@ -29,7 +30,8 @@ export default function App() {
       {/* <PasscodeScreen/> */}
       {/* <VerificationScreen/> */}
       {/* <RegisterScreen/> */}
-       <SelectPlanScreen/>
+      <EditProfileScreen/>
+       {/* <SelectPlanScreen/> */}
       {/* <UpgradeScreen/> */}
       {/* <NotificationScreen/> */}
       {/* <OrderNotification/> */}
