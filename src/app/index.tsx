@@ -39,7 +39,7 @@ function index() {
             onLayout={onLayoutViewRootView}
             style={styles.container}>
                 {/* <WelcomeScreen  /> */}
-                <PaymentDetailsScreen />
+                {<ParkingRouteScreen />}
             </View>
         );
 }
