@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import EditProfileInput from '../../../components/EditProfileInput';
 import ProfiteBtn from '../../../components/ProfiteBtn';
+import ProfileRoleSelector from '../../../components/ProfileRoleSelector';
 function EditProfileScreen() {
     return (
      <SafeAreaView style={styles.container}>
@@ -18,11 +19,15 @@ function EditProfileScreen() {
                 </View>
                 </View>
                 <View style={styles.profiteView}>
+                    <View style={styles.profiteViewInner}>
                     <ImageBackground source={require("../../../../assets/images/profile.png")} style={styles.ProfileImage}>
-                        <View style={styles.EditIconView}>
-                            <MaterialCommunityIcons name="pencil-circle" size={24} color="#F43939" />
+                         <View style={styles.EditIconView}>
+                                <View style={styles.EditIconViewInner}>
+                                     <MaterialCommunityIcons name="pencil-circle" size={24} color="#F43939" />
+                                </View>   
                         </View>
                     </ImageBackground>
+                    </View>    
                 </View>
                 <View style={styles.inputView}>
                 <View>
@@ -41,12 +46,11 @@ function EditProfileScreen() {
                                 Type
                             </Text>
                             <View>
-                                <EditProfileInput value="Car Sport" width={146} height={54} />
-
+                                <ProfileRoleSelector/>
                             </View>
 
                         </View>
-                        <View style={styles.LeftView}>
+                        <View style={styles.RightView}>
                             <Text style={styles.head}>
                                 ID
                             </Text>
@@ -60,7 +64,7 @@ function EditProfileScreen() {
                                 Address
                             </Text>
                             <View>
-                                <EditProfileInput value="Adress" width={311} height={54} />
+                                <EditProfileInput value="Address" width={311} height={54} />
                             </View>
                      </View>  
                     </View>  
@@ -143,21 +147,38 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginTop: 20,
-        marginBottom:10
+        marginBottom: 10,
+    },
+    profiteViewInner: {
+        width: 88,
+        height: 87,
+        
     },
     ProfileImage: {
-        width: 120,
-        height: 120,
+        width: 86,
+        height: 86,
         display: "flex",
         flexDirection:"row",
         justifyContent: "flex-end",
         alignItems: "flex-end",
     },
     EditIconView: {
-         display: "flex",
+        display: "flex",
         flexDirection:"row",
         justifyContent: "flex-end",
         alignItems: "flex-end",
+    },
+    EditIconViewInner: {
+        backgroundColor: "white",
+        width: 22,
+        height: 22,
+        borderRadius: 200,
+        display: "flex",
+        flexDirection:"row",
+        justifyContent: "center",
+        alignItems: "center",
+       
+        
     },
     inputView: {
        display: "flex",
@@ -185,7 +206,10 @@ const styles = StyleSheet.create({
         marginBottom:20
     },
     LeftView: {
-        
+        height:110   
+    },
+    RightView: {
+        height:110
     },
     btnView: {
        display: "flex",

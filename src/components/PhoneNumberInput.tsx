@@ -6,7 +6,7 @@ import {Picker} from '@react-native-picker/picker';
 function PhoneNumberInput() {
    
     
-    const [countryCode, setCountryCode] = useState('');
+  const [countryCode, setCountryCode] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
 
   const countryCodes = [
@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
     height:60,
     flexDirection: 'row',
     alignItems: 'center',
-   
     backgroundColor:"white",
     borderRadius: 10,
     paddingHorizontal: 10,
