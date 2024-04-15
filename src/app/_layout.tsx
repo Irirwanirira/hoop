@@ -15,16 +15,12 @@ const _layout = () => {
           <Stack.Screen name= "screens/LandingPage/HollaScreen"
                 options={{
                 headerTitle: "Hollaaaaa",
-                // headerShown: false,
-                // headerStyle: {}
             }}
         />
 
         <Stack.Screen name= "screens/LandingPage/WelcomeScreen"
                 options={{
                 headerTitle: "Welcome screen",
-                // headerShown: false,
-                // headerStyle: {}
             }}
         />
 
@@ -32,7 +28,6 @@ const _layout = () => {
                 options={{
                 headerTitle: "",
                 headerShown: false,
-                // headerStyle: {}
             }}
         />
 
@@ -40,42 +35,36 @@ const _layout = () => {
                 options={{
                 headerTitle: "",
                 headerShown: false,
-                // headerStyle: {}
             }}
       />
      <Stack.Screen name= "screens/Auth/RegisterScreen"
                 options={{
                 headerTitle: "",
                 headerShown: false,
-                // headerStyle: {}
             }}
       />
        <Stack.Screen name= "screens/Auth/ForgetPasswordScreen"
                 options={{
                 headerTitle: "",
                 headerShown: false,
-                // headerStyle: {}
             }}
       />
      <Stack.Screen name= "screens/Auth/VerificationScreen"
                 options={{
                 headerTitle: "",
                 headerShown: false,
-                // headerStyle: {}
             }}
       />
       <Stack.Screen name= "screens/Auth/PassCodeScreen"
                 options={{
                 headerTitle: "",
                 headerShown: false,
-                // headerStyle: {}
             }}
       />
        <Stack.Screen name= "screens/Auth/CheckEmailScreen"
                 options={{
                 headerTitle: "",
                 headerShown: false,
-                // headerStyle: {}
             }}
       />
 
@@ -140,7 +129,40 @@ const _layout = () => {
                       headerTitle: "",
                       headerShown: false,
                   }}
-      />
+         />
+
+            <Stack.Screen name= "screens/Home/BookScreen"
+                      options={{
+                      headerTitle: "",
+                      headerShown: false,
+                  }}
+            />
+               <Stack.Screen name= "screens/Home/ChooseSpaceScreen"
+                      options={{
+                      headerTitle: "",
+                      headerShown: false,
+                  }}
+            />
+
+            <Stack.Screen name= "screens/Home/TrackingParkScreen"
+                    options={{
+                    headerTitle: "",
+                    headerShown: false,
+                }}
+            />
+            <Stack.Screen name= "screens/Home/DetailCategoryScreen"
+                    options={{
+                    headerTitle: "",
+                    headerShown: false,
+                }}
+            />
+
+            <Stack.Screen name= "screens/Home/ParkingDetails"
+                    options={{
+                    headerTitle: "",
+                    headerShown: false,
+                }}
+            />
     </Stack>
   )
 }

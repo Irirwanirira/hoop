@@ -6,6 +6,7 @@ import {
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
+  Pressable
 } from "react-native";
 import { mall, COLORS, SIZES } from "../../../constants";
 import {
@@ -15,6 +16,7 @@ import {
   timeIcon,
 } from "../../../constants/Icons";
 import { parkDetailImage } from "../../../constants/Images";
+import { Link, router } from "expo-router";
 
 const datas = [
   {
@@ -37,25 +39,25 @@ const datas = [
   },
 ];
 
-
 const ParkingDetailsScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <Image
-          style={{ alignSelf: "flex-end" }}
-          source={leftArrowWithBackground}
-        />
+       <Pressable
+        onPress={()=> router.back()}
+            style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            }}
+        >
+            <Image
+            style={{ alignSelf: "flex-end" }}
+            source={leftArrowWithBackground}
+            />
 
-        <Text style={{ fontSize: SIZES.medium_m }}>Details</Text>
-        <View></View>
-      </View>
+            <Text style={{ fontSize: SIZES.medium_m }}>Details</Text>
+            <View></View>
+      </Pressable>
 
       <View
         style={{
@@ -79,76 +81,104 @@ const ParkingDetailsScreen = () => {
         </View>
       </View>
 
-      <View style={{ marginTop: 50, alignItems: "center", gap: 10}}>
-            <Text style={{ color: COLORS.Primary, fontSize: SIZES.large }}>Graha Mall</Text>   
-            <Text
-              style={{
-                color: COLORS.Primary,
-                fontSize: SIZES.medium,
-                opacity: 0.5,
-              }}
-            >
-                123 Dhaka Street
-              
-            </Text>
-      </View>
-
-      <View style={{ flexDirection: "row", gap: 20, alignItems: "center", justifyContent:"center", marginTop: 30}}>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              gap: 5,
-              backgroundColor: "#FFF3F3",
-              paddingHorizontal: 25,
-              paddingVertical: 10,
-              borderRadius: 10,
-            }}
-          >
-            <Image source={locationIcon} />
-            <Text style={{ color: COLORS.Orange }}>500 m away</Text>
-          </View>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              gap: 5,
-              backgroundColor: "#FFF3F3",
-              paddingHorizontal: 25,
-              paddingVertical: 10,
-              borderRadius: 10,
-            }}
-          >
-            <Image source={timeIcon} />
-            <Text style={{ color: COLORS.Orange }}>7 min</Text>
-          </View>
-        </View>
-
-      <View>
-      </View>
-
-      <View style={{ marginTop: 40, alignItems: "center", position: "relative" }}>
-        <Text style={{ fontSize: SIZES.medium_18, alignSelf: "flex-start" }}>Information</Text>
+      <View style={{ marginTop: 50, alignItems: "center", gap: 10 }}>
+        <Text style={{ color: COLORS.Primary, fontSize: SIZES.large }}>
+          Graha Mall
+        </Text>
         <Text
-            style={{lineHeight: 30, fontSize: SIZES.medium_18, marginTop: 30, opacity: 1, letterSpacing: 1}}
-            >24/7 parking facility with cctv camera, professional security guard, 
-            chair
-            <Text>disable, floor parking list facilities. You will get hassle 
-            parking facilities with 35% discount on first parking...</Text> 
+          style={{
+            color: COLORS.Primary,
+            fontSize: SIZES.medium,
+            opacity: 0.5,
+          }}
+        >
+          123 Dhaka Street
+        </Text>
+      </View>
+
+      <View
+        style={{
+          flexDirection: "row",
+          gap: 20,
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: 30,
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            gap: 5,
+            backgroundColor: "#FFF3F3",
+            paddingHorizontal: 25,
+            paddingVertical: 10,
+            borderRadius: 10,
+          }}
+        >
+          <Image source={locationIcon} />
+          <Text style={{ color: COLORS.Orange }}>500 m away</Text>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            gap: 5,
+            backgroundColor: "#FFF3F3",
+            paddingHorizontal: 25,
+            paddingVertical: 10,
+            borderRadius: 10,
+          }}
+        >
+          <Image source={timeIcon} />
+          <Text style={{ color: COLORS.Orange }}>7 min</Text>
+        </View>
+      </View>
+
+      <View></View>
+
+      <View
+        style={{ marginTop: 40, alignItems: "center", position: "relative" }}
+      >
+        <Text style={{ fontSize: SIZES.medium_18, alignSelf: "flex-start" }}>
+          Information
+        </Text>
+        <Text
+          style={{
+            lineHeight: 30,
+            fontSize: SIZES.medium_18,
+            marginTop: 30,
+            opacity: 1,
+            letterSpacing: 1,
+          }}
+        >
+          24/7 parking facility with cctv camera, professional security guard,
+          chair
+          <Text>
+            disable, floor parking list facilities. You will get hassle parking
+            facilities with 35% discount on first parking...
+          </Text>
         </Text>
 
         <TouchableOpacity
-        style={{backgroundColor: "#130F26", paddingHorizontal: 70, paddingVertical: 20, borderRadius: 10, position: "absolute", bottom:-25}} 
+          style={{
+            backgroundColor: "#130F26",
+            paddingHorizontal: 70,
+            paddingVertical: 20,
+            borderRadius: 10,
+            position: "absolute",
+            bottom: -25,
+          }}
         >
-            <Text
-            style={{color: COLORS.Secondary, fontSize: SIZES.medium}}
-            >Book now</Text>
+          <Link href={"/screens/Home/TrackingParkScreen"}>
+            <Text style={{ color: COLORS.Secondary, fontSize: SIZES.medium }}>
+              Book now
+            </Text>
+          </Link>
         </TouchableOpacity>
-        
       </View>
 
-      <View>
-      </View>
+      <View></View>
     </SafeAreaView>
   );
 };

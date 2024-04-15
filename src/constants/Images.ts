@@ -10,6 +10,10 @@ import parkDetailImage from "../../assets/images/parkDetail.png"
 import SuccessImage from "../../assets/images/successImage.png"
 import SuccessEllipseImage from "../../assets/images/successElipseImage.png"
 import RouteImage from "../../assets/images/routeImage.png"
+import BookingImage from "../../assets/images/bookingImage.png"
+import mapImage from "../../assets/images/mapImage.png"
+
+
 
 
 
@@ -30,4 +34,6 @@ export {
     SuccessEllipseImage,
     SuccessImage,
     RouteImage,
+    BookingImage,
+    mapImage,
 };
