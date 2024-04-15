@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
-import { router, useNavigation } from 'expo-router';
+import { router, useNavigation,Link } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import OrderNotification from '../../../components/OrderNotification';
 
@@ -8,10 +8,12 @@ function NotificationScreen() {
     return (
          <SafeAreaView style={styles.container}>
         <View style={styles.parent} >
-            <View style={styles.upper}>
-                <View style={styles.IconView}>
+                <View style={styles.upper}>
+                <Link href="/screens/Home/HomeView">
+                    <View style={styles.IconView}>
                     <Ionicons name="chevron-back" size={24} color="#9E9EA4" />
-                </View>
+                    </View>
+                </Link>
                 <View style={styles.notificationView}>
                     <Text style={styles.notification}>Notifications</Text>
                 </View>

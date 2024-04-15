@@ -84,6 +84,12 @@ const _layout = () => {
                       headerTitle: "",
                       headerShown: false,
                   }}
+          />
+           <Stack.Screen name= "screens/Home/ProfileScreen"
+                      options={{
+                      headerTitle: "",
+                      headerShown: false,
+                  }}
                   />
 
       <Stack.Screen name= "screens/Home/BookDetails"
@@ -106,6 +112,30 @@ const _layout = () => {
                   }}
       />
           <Stack.Screen name= "screens/Home/PaymentSuccessScreen"
+                      options={{
+                      headerTitle: "",
+                      headerShown: false,
+                  }}
+          />
+          <Stack.Screen name= "screens/Notification/NotificationScreen"
+                      options={{
+                      headerTitle: "",
+                      headerShown: false,
+                  }}
+          />
+          <Stack.Screen name= "screens/Plan/UpgradeScreen"
+                      options={{
+                      headerTitle: "",
+                      headerShown: false,
+                  }}
+          />
+          <Stack.Screen name= "screens/Plan/SelectPlanScreen"
+                      options={{
+                      headerTitle: "",
+                      headerShown: false,
+                  }}
+          />
+          <Stack.Screen name= "screens/EditProfile/EditProfileScreen"
                       options={{
                       headerTitle: "",
                       headerShown: false,

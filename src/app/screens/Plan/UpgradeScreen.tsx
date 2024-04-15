@@ -1,18 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground,ScrollView } from 'react-native'
+import { StyleSheet, Text, Image, View, TouchableHighlight,Pressable,SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground,ScrollView } from 'react-native'
 import { router, useNavigation } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import PlanFeature from '../../../components/PlanFeature';
 import PlanBtn from '../../../components/PlanBtn';
-
 function UpgradeScreen() {
     return (
        <SafeAreaView style={styles.container}>
         <View style={styles.parent} >
-            <View style={styles.upper}>
-                <View style={styles.IconView}>
+                <View style={styles.upper}>
+                 <Pressable onPress={()=> router.back()}>
+                 <View style={styles.IconView} >
                     <Ionicons name="chevron-back" size={24} color="#9E9EA4" />
                 </View>
+                </Pressable>
+               
                 <View style={styles.upgradeView}>
                     <Text style={styles.upgradeText}>Upgrade</Text>
                 </View>
@@ -79,7 +81,7 @@ function UpgradeScreen() {
              <View style={styles.btnView}>
                  <PlanBtn
                     title="Choose a plan"
-                    functionAction={()=>console.log("choose")}
+                    functionAction={()=>router.navigate("/screens/Plan/SelectPlanScreen")}
                  />   
              </View>   
             

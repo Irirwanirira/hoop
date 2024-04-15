@@ -1,19 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground,ScrollView } from 'react-native'
+import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground,ScrollView, Pressable } from 'react-native'
 import { router, useNavigation } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import EditProfileInput from '../../../components/EditProfileInput';
 import ProfiteBtn from '../../../components/ProfiteBtn';
 import ProfileRoleSelector from '../../../components/ProfileRoleSelector';
+
 function EditProfileScreen() {
     return (
      <SafeAreaView style={styles.container}>
         <View style={styles.parent} >
-             <View style={styles.upper}>
-                <View style={styles.IconView}>
+                <View style={styles.upper}>
+                 <Pressable onPress={()=>router.back()}>
+                 <View style={styles.IconView}>
                     <Ionicons name="chevron-back" size={24} color="#9E9EA4" />
-                </View>
+                 </View>
+                  </Pressable>
+                
                 <View style={styles.EditView}>
                     <Text style={styles.EditText}>Edit Profile</Text>
                 </View>
