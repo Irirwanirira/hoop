@@ -23,6 +23,7 @@ import visaIcon from "../../assets/icons/visaIcon.png"
 import chatIcon from "../../assets/icons/redChatIcon.png" 
 import redMessageIcon from "../../assets/icons/redMessageIcon.png" 
 import fluentArrowIcon from "../../assets/icons/fluent_arrowIcon.png" 
+import infoIcon from "../../assets/icons/InfoCircle.png" 
 
 
 export {
@@ -51,4 +52,5 @@ export {
     switchIcon,
     visaIcon,
     masterCardIcon,
+    infoIcon,
 }

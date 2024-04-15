@@ -1,37 +1,52 @@
 import React from 'react'
-import { View, Text, TextInput, Image, FlatList, ImageBackground } from 'react-native'
+import { View, Text, TextInput, Image, FlatList, ImageBackground, Linking } from 'react-native'
 import {mall, COLORS, SIZES } from '../../../constants'
 import { Link } from 'expo-router'
-const datas = [
+
+interface directionData {
+    id: string;
+    name: string;
+    address: string;
+    price: number,
+    time: number,
+    image: any;
+  }
+
+
+const datas: directionData[] = [
     {
         id: "1",
         name: "Graha Mall",
         address: "123 Duke Street",
         price: 7,
         time: 7,
-        image: `${mall}`
+        image: mall
     },    {
         id: "2",
         name: "Graha Mall",
         address: "123 Duke Street",
         price: 7,
         time: 7,
-        image: `${mall}`
+        image: mall
     }
 ]
 
 const CardComponents =({item}: {item: any})=> {
    return ( 
     <View style={{flexDirection: "row", justifyContent:"space-between",alignItems: 'flex-start',  marginTop: 40, backgroundColor: "#fff",padding: 20, borderRadius: 20}}>
-        <View style={{flexDirection: "row", gap: 20 }}>
-            <Image source={item.image}/>
-            <View>
-                <Text style={{color:COLORS.Primary, fontSize: SIZES.large}}>{item.name}</Text>
-                <Text style={{color:COLORS.Primary, fontSize: SIZES.medium, opacity: 0.5}}>{item.address}</Text>
-                <Text style={{color:COLORS.Orange, fontSize: SIZES.large, fontWeight: "900", marginTop: 15}}>${item.price}<Text 
-                style={{fontWeight: "normal", fontSize: SIZES.medium_m}}> /hour</Text></Text>
+        <Link href="/screens/Home/ParkingDetails">
+            <View style={{flexDirection: "row", gap: 20 }}>
+                    <Image source={item.image}/>
+                    <View>
+                        <Text style={{color:COLORS.Primary, fontSize: SIZES.large}}>{item.name}</Text>
+                        <Text style={{color:COLORS.Primary, fontSize: SIZES.medium, opacity: 0.5}}>{item.address}</Text>
+                        <Text style={{color:COLORS.Orange, fontSize: SIZES.large, fontWeight: "900", marginTop: 15}}>${item.price}<Text 
+                        style={{fontWeight: "normal", fontSize: SIZES.medium_m}}> /hour</Text></Text>
+                    </View>
+            
             </View>
-        </View>
+        </Link>
+
       
         <Text style={{backgroundColor: "#FFF3F3", paddingVertical:10, paddingHorizontal: 25,borderRadius: 20,color: COLORS.Orange, opacity: 0.8 }}>{item.time} min</Text>
     </View>
@@ -78,7 +93,7 @@ const HomeView = () => {
                 <Image
                 resizeMode='cover' 
                 source={require("../../../../assets/icons/Homesearch.png")} 
-                style={{tintColor: COLORS.Primary, width: 25, backgroundColor: "yellow"}}
+                style={{tintColor: COLORS.Primary, width: 25}}
                 />
                 <TextInput
                     style={{ paddingHorizontal: 5, paddingVertical: 15, shadowColor: "#EAEAF3", }}
