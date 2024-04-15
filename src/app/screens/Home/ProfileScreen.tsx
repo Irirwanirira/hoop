@@ -1,4 +1,7 @@
 import React from "react";
+import { Ionicons } from '@expo/vector-icons';
+import { Pressable } from "react-native";
+import { Link,router } from "expo-router";
 import {
   View,
   Text,
@@ -32,26 +35,31 @@ const datas = [
     id: "1",
     icon: `${profileIcon}`,
     title: "Profile",
+    direction:"/screens/Plan/UpgradeScreen"
   },
   {
     id: "2",
     icon: `${discountIcon}`,
     title: "Go Pro",
+    direction:"/screens/Plan/UpgradeScreen"
   },
   {
     id: "3",
     icon: `${documentIcon}`,
     title: "Terms & Condition",
+    direction:"/screens/Plan/UpgradeScreen"
   },
   {
     id: "4",
     icon: `${questionIcon}`,
     title: "FAQ",
+    direction:"/screens/Plan/UpgradeScreen"
   },
   {
     id: "5",
     icon: `${settingsIcon}`,
     title: "Setting",
+    direction:"/screens/EditProfile/EditProfileScreen"
   },
 ];
 
@@ -65,33 +73,37 @@ const CardComponents = ({ item }: { item: any }) => {
         marginTop: 40,
       }}
     >
+      
       <View style={{ flexDirection: "row", gap: 20 }}>
         <Image style={{ width: 25, height: 25 }} source={item.icon} />
         <Text style={{ fontSize: SIZES.medium_18 }}>{item.title}</Text>
       </View>
-      <Image style={{ width: 10, height: 15 }} source={rightIcon} />
+       <Link href={item.direction}><Image style={{ width: 10, height: 15 }} source={rightIcon} /></Link>
+      
     </View>
   );
 };
 
 const ProfileScreen = () => {
   return (
-    <View style={{ backgroundColor: COLORS.Primary }}>
+    <View style={{ backgroundColor:"#081024" }}>
       <ImageBackground
         source={HomebackgroundImage}
         resizeMode="contain"
         style={{ padding: 40, backgroundColor: "#0A1124" }}
       >
-        <Text
-          style={{
-            color: COLORS.Secondary,
-            alignSelf: "center",
-            marginTop: 40,
-            fontSize: SIZES.medium_m,
-          }}
-        >
-          Profile
-        </Text>
+        <View style={styles.upper}>
+                 <Pressable onPress={()=>router.back()}>
+                 <View style={styles.IconView}>
+                    <Ionicons name="chevron-back" size={24} color="#9E9EA4" />
+                 </View>
+                  </Pressable>
+                
+                <View style={styles.EditView}>
+                    <Text style={styles.EditText}>Profile</Text>
+                </View>
+                </View>
+       
         <View
           style={{
             flexDirection: "row",
@@ -177,6 +189,38 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 20,
   },
+  upper: {
+        display: "flex",
+        flexDirection: "row",
+        marginBottom: 20,
+        width: "100%",
+    },
+    IconView: {
+        width: 44,
+        height: 44,
+        borderRadius:10,
+        backgroundColor: "#EAEAF3",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        zIndex: 1000,
+        marginLeft: 0,
+         
+    },
+    EditText: {
+        color: "white",
+        fontSize: 22, 
+        fontWeight:"500"
+    },
+    EditView: {
+        display: "flex",
+        flexDirection:"row",
+        justifyContent: "center",
+        alignItems: "center",
+        width:"70%"
+        
+        // width:"70%"
+    },
 });
 
 export default ProfileScreen;

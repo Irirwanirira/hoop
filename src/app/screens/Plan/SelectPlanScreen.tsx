@@ -1,18 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground,ScrollView } from 'react-native'
+import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground,ScrollView, Pressable } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import PaymentTF from '../../../components/PaymentTF';
 import PlanBtn from '../../../components/PlanBtn';
 import { useState } from 'react';
+import { router } from 'expo-router';
 function SelectPlanScreen() {
     const [selectedTab,setSelectedTab]=useState(0)
     return (
         <SafeAreaView style={styles.container}>
         <View style={styles.parent} >
-            <View style={styles.upper}>
+                <View style={styles.upper}>
+                <Pressable onPress={()=>router.back()}>
                 <View style={styles.IconView}>
                     <Ionicons name="chevron-back" size={24} color="#9E9EA4" />
-                </View>
+                </View>  
+                </Pressable>
+                
                 <View style={styles.upgradeView}>
                     <Text style={styles.upgradeText}>Upgrade</Text>
                 </View>

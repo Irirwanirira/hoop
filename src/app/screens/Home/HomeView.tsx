@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, TextInput, Image, FlatList, ImageBackground } from 'react-native'
 import {mall, COLORS, SIZES } from '../../../constants'
-
+import { Link } from 'expo-router'
 const datas = [
     {
         id: "1",
@@ -47,7 +47,7 @@ const HomeView = () => {
         style={{padding: 40, backgroundColor:"#0A1124"}}>
             <View style={{flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: 40}}>
                 <View>
-                    <Text style={{fontSize: 28, color: COLORS.Secondary}}>Hola, Diane👋🏻</Text>
+                   <Link href="/screens/Home/ProfileScreen"><Text style={{fontSize: 28, color: COLORS.Secondary}}>Hola, Diane👋🏻</Text></Link> 
                     <Text style={{fontSize: SIZES.small_sm, marginTop: 10, color: COLORS.Secondary, opacity: 0.4}} >Find an easy parking spot</Text>
                 </View>
                 <View
@@ -57,11 +57,14 @@ const HomeView = () => {
                         flexDirection: "row",
                         alignItems: 'center', 
                         borderRadius: 10,
-                        gap: 10}}>
+                          gap: 10
+                      }}>
+                      <Link href="/screens/Notification/NotificationScreen">
                         <Image
                             resizeMode='cover' 
                             source={require("../../../../assets/icons/Notification.png")} 
-                            />
+                      />
+                      </Link>
                 </View>
             </View>
             <View style={{
@@ -92,7 +95,7 @@ const HomeView = () => {
         <View style={{backgroundColor: "#F4F4FA", borderTopEndRadius: 30, borderTopStartRadius: 30, padding:40}}>
 
             <View>
-                <Text style={{ fontSize: SIZES.medium_m,color: "##0A1124"}}>Category</Text>
+                <Text style={{ fontSize: SIZES.medium_m,color: "#0A1124"}}>Category</Text>
             </View>
             <View style={{flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: 20}}>
                 <View style={{backgroundColor: COLORS.Secondary, paddingVertical: 15, paddingHorizontal:30,borderRadius: 10, gap: 10}}>

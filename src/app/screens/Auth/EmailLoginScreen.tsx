@@ -7,19 +7,17 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import PasswordInput from '../../../components/PasswordInput';
 import Data from "../../../Data/data.json"
 import { useState } from 'react';
-import { Link } from 'expo-router'
+import { Link, router } from 'expo-router'
 
 function EmailLoginScreen() {
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     
     const handleLogin = () => {
-        const user = Data.users.find((user) => user.Email === email)
-        if (user) {
-            console.log("user exist")
-        } else {
-            console.log("no")
-        }
+       
+       
+            router.navigate("/screens/Home/HomeView")
+        
     }
 
     return (
