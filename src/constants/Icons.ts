@@ -24,6 +24,10 @@ import chatIcon from "../../assets/icons/redChatIcon.png"
 import redMessageIcon from "../../assets/icons/redMessageIcon.png" 
 import fluentArrowIcon from "../../assets/icons/fluent_arrowIcon.png" 
 import infoIcon from "../../assets/icons/InfoCircle.png" 
+import carToDrag from "../../assets/icons/carToDrag.png"
+
+
+
 
 
 export {
@@ -53,4 +57,5 @@ export {
     visaIcon,
     masterCardIcon,
     infoIcon,
+    carToDrag
 }

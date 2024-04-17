@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   View,
   Text,
@@ -6,21 +6,36 @@ import {
   StyleSheet,
   SafeAreaView,
   Pressable,
-  ScrollView
+  ScrollView,
+  Animated,
+  PanResponder
 } from "react-native";
 import { mall, COLORS, SIZES } from "../../../constants";
 import {
+  carToDrag,
   leftArrowWithBackground,
 } from "../../../constants/Icons";
 import Buttons from "../../../components/Buttons";
 import { Link, router } from "expo-router";
-
-
+ 
 const ChooseSpaceScreen = () => {
+  const pan = useRef(new Animated.ValueXY()).current;
+   
+  const panResponder = useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}],{ useNativeDriver: false}
+      ),
+      onPanResponderRelease: () => {
+        pan.extractOffset();
+      },
+    }),
+  ).current;
+    
   return (
     <SafeAreaView style={styles.container}>
         <Pressable
-        onPress={()=> router.back()}
+          onPress={()=> router.back()}
             style={{
             flexDirection: "row",
             alignItems: "center",
@@ -71,11 +86,26 @@ const ChooseSpaceScreen = () => {
         
       </ScrollView>
 
-      <View>
+      <View style={{position: "relative"}}>
         <Image
         source={require("../../../../assets/images/spaceParking.png")}
         style={{resizeMode: "cover", justifyContent: "center", width: "100%" }}
         />
+        <Animated.View
+          style={{
+            position: 'absolute',
+            left: "50%",
+            top: "50%",
+            transform: [{ translateX: pan.x }, { translateY: pan.y }],
+            backgroundColor: "red", padding: 10, borderRadius: 10
+          }}
+          {...panResponder.panHandlers}
+        >   
+            <Image
+            style={{ width: 70, height: 40}}
+              source={carToDrag}
+            />
+        </Animated.View>
       </View>
       <View style={{paddingHorizontal: 30,}}>
       <Buttons
