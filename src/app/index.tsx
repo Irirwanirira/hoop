@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { View, StyleSheet } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import WelcomeScreen from "./screens/LandingPage/WelcomeScreen";
+import BookScreen from "./screens/Home/BookScreen";
 
 function index() {
   const [isReady, setIsReady] = useState(false);
@@ -33,6 +34,7 @@ function index() {
   return (
     <View onLayout={onLayoutViewRootView} style={styles.container}>
       <WelcomeScreen />
+      {/* <BookScreen /> */}
     </View>
   );
 }
