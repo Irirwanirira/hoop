@@ -64,11 +64,23 @@ const BookScreen = () => {
 
       <View
         style={{
-          paddingLeft: 120,
+          flexDirection: "row",
           marginTop: 50,
+          justifyContent: "space-between",
+          alignItems: "center"
         }}
-      >
-        <Image style={{resizeMode: "contain", }} source={BookingImage} />
+      > 
+      <View style={{paddingLeft: 50, width: "50%", gap: 40}}>
+        <Text style={{fontSize: 32}}>Add Insurance?</Text>
+        <Image 
+        source={require("../../../../assets/images/leftToSpinner.png")}
+        style={{resizeMode: "contain", }} 
+        />
+      </View>
+        <Image 
+        source={require("../../../../assets/images/spinner.png")}
+        style={{resizeMode: "contain"}} 
+        />
       </View>
    
 

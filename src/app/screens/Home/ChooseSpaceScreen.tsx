@@ -24,8 +24,7 @@ const ChooseSpaceScreen = () => {
   const panResponder = useRef(
     PanResponder.create({
       onMoveShouldSetPanResponder: () => true,
-      onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}],{ useNativeDriver: false}
-      ),
+      onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}],{ useNativeDriver: false}),
       onPanResponderRelease: () => {
         pan.extractOffset();
       },
