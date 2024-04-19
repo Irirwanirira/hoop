@@ -4,6 +4,14 @@
 ## Description
 Hoop is a React Native mobile application built with Expo that simplifies the process of booking parking spots. Its purpose is to provide users with a convenient and hassle-free way to reserve parking spaces on the go.
 
+## Preview
+
+![](/assets/readmeImage/spalshScreen.jpeg) ![](/assets/readmeImage/landingPage.jpeg) ![](/assets/readmeImage/addInsurance.jpeg) ![](/assets/readmeImage/paymentMethod.jpeg)
+
+
+
+
+
 # Installation procedure
 
 ### Prerequisites
