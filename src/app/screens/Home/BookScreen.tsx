@@ -1,4 +1,5 @@
 import React from "react";
+import CircularWheel from "../../../components/spin";
 import {
   View,
   Text,
@@ -41,6 +42,18 @@ const datas = [
 ];
 
 const BookScreen = () => {
+  const hours = [
+    { title: "1", label: "Hour" },
+    { title: "2", label: "Hours" },
+    { title: "3", label: "Hours" },
+    { title: "4", label: "Hours" },
+    { title: "5", label: "Hours" },
+    { title: "6", label: "Hours" },
+    { title: "7", label: "Hours" },
+    { title: "8", label: "Hours" },
+    { title: "9", label: "Hours" },
+    { title: "10", label: "Hours" },
+  ];
   return (
     <SafeAreaView style={styles.container}>
       <Pressable
@@ -77,10 +90,9 @@ const BookScreen = () => {
         style={{resizeMode: "contain", }} 
         />
       </View>
-        <Image 
-        source={require("../../../../assets/images/spinner.png")}
-        style={{resizeMode: "contain"}} 
-        />
+        <View>
+          <CircularWheel data={hours} />
+       </View>
       </View>
    
 
