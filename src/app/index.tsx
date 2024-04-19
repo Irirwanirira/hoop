@@ -45,9 +45,7 @@ const hours = [
 
   return (
     <View onLayout={onLayoutViewRootView} style={styles.container}>
-      {/* <WelcomeScreen /> */}
-      <BookScreen />
-      {/* <CircularWheel data={hours} /> */}
+      <WelcomeScreen />
     </View>
   );
 }
