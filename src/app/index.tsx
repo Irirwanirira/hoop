@@ -3,7 +3,8 @@ import { View, StyleSheet } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import WelcomeScreen from "./screens/LandingPage/WelcomeScreen";
 import BookScreen from "./screens/Home/BookScreen";
-import CircularWheel from "./screens/Home/spin";
+import CircularWheel from "../components/spin";
+
 function index() {
   const [isReady, setIsReady] = useState(false);
 const hours = [
@@ -45,8 +46,8 @@ const hours = [
   return (
     <View onLayout={onLayoutViewRootView} style={styles.container}>
       {/* <WelcomeScreen /> */}
-      {/* <BookScreen /> */}
-      <CircularWheel data={hours} />
+      <BookScreen />
+      {/* <CircularWheel data={hours} /> */}
     </View>
   );
 }

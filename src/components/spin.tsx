@@ -3,12 +3,8 @@ import { AnimatedStyle, interpolate } from "react-native-reanimated";
 import Carousel from "react-native-reanimated-carousel";
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, View, ViewStyle,Text, useWindowDimensions } from "react-native";
-
-// import Colors from "@/constants/Colors";
-// import Sizes from "@/constants/Sizes";
-// import { Icon } from "./Icon";
-// import { Text } from "./Themed";
-
+import { COLORS } from "../constants";
+import { AntDesign } from '@expo/vector-icons';
 type CircularWheelProps = {
   data: { title: string, label: string }[];
 };
@@ -97,11 +93,11 @@ export default function CircularWheel({ data }: CircularWheelProps) {
           },
         ]}
       >
-        <Ionicons name="chevron-back" size={24} />
+        <AntDesign name="caretleft" size={48} color="red" />
       </View>
       <View
         style={{
-          backgroundColor:"red",
+          backgroundColor:COLORS.BackgroundColor,
           position: "absolute",
           width: wheelSize / 2,
           height: wheelSize / 2,
@@ -124,7 +120,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   hourText: {
-    fontSize:12,
+    fontSize:26,
   },
   hourLabel: {
     fontWeight: "400",
