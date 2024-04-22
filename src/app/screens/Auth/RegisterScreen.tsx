@@ -4,28 +4,26 @@ import { Link } from 'expo-router';
 import Input from '../../../components/Input';
 import LoginButton from '../../../components/LoginButton';
 import PasswordInput from '../../../components/PasswordInput';
-import Data from "../../../Data/data.json"
 import { COLORS } from '../../../constants';
-
+import supabase  from '../../../supabase';
 function RegisterScreen() {
     const [email, setEmail] = useState<string>("")
     const [phoneNumber, setPhoneNumber] = useState<string>("")
     const [password, setPassword] = useState<string>("")
 
-   
-    const Register = () => {
-        const newUser = {
-        Email: email,
-        Phone: phoneNumber,
-        Password:password
-        
-    }
-     
-        Data.users.push(newUser)
-        console.log(newUser)
-        
-    }
+    const handleRegister = async (): Promise<void> => {
+        const { data, error } = await supabase.auth.signUp({
+            email: email,
+            password:password
+        })
+        if (error) {
+            console.log("Sign up failed")
+        } else {
+            console.log("new user",data)
+        }
 
+        
+}
     return (
         <SafeAreaView style={styles.container} >
         <View style={styles.parent}>
@@ -50,7 +48,7 @@ function RegisterScreen() {
                     <View style={styles.ButtonView}>
                          <LoginButton
                     title="Register"
-                    onPress={Register}
+                    onPress={handleRegister}
                 
                     />
                     </View>
