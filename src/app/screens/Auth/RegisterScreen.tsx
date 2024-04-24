@@ -1,20 +1,32 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions, ImageBackground } from 'react-native'
+import {ID} from "react-native-appwrite"
+import { StyleSheet, Text, Image, View, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions, ImageBackground } from 'react-native'
 import { Link } from 'expo-router';
 import Input from '../../../components/Input';
 import LoginButton from '../../../components/LoginButton';
 import PasswordInput from '../../../components/PasswordInput';
 import { COLORS } from '../../../constants';
+import { account } from '../../../upwrite';
+import { router } from 'expo-router';
 function RegisterScreen() {
     const [email, setEmail] = useState<string>("")
     const [phoneNumber, setPhoneNumber] = useState<string>("")
     const [password, setPassword] = useState<string>("")
+    const [alert,setAlert]=useState<string>("")
 
-    const handleRegister = async (): Promise<void> => {
-     
 
-        
-}
+    const handleCreate = async () => {
+        try {
+            
+            const response =await account.create(ID.unique(), email, password,"Joseph")
+            setAlert("New user registered successfully")
+            Alert.alert("New user registered successfully")
+            router.navigate("screens/Auth/EmailLoginScreen");
+        } catch (error) {
+            setAlert("Failed to register new user")
+            console.log(error)
+      }
+  }
     return (
         <SafeAreaView style={styles.container} >
         <View style={styles.parent}>
@@ -39,7 +51,7 @@ function RegisterScreen() {
                     <View style={styles.ButtonView}>
                          <LoginButton
                     title="Register"
-                    onPress={handleRegister}
+                    onPress={handleCreate}
                 
                     />
                     </View>
@@ -47,16 +59,7 @@ function RegisterScreen() {
                         <Text style={styles.LowerText}>Have an account? <Link href="/screens/Auth/EmailLoginScreen"><Text style={styles.retrieve}>Sign in</Text></Link></Text>    
 
                     </View>
-               
-                
             </View>
-            
-
-
-
-
-
-
             </View>
             
        </View>
@@ -69,6 +72,7 @@ export default RegisterScreen;
 
 const styles = StyleSheet.create({
      container: {
+
         display: "flex",
         flexDirection:"row",
         backgroundColor:"#F4F4FA",
@@ -80,6 +84,7 @@ const styles = StyleSheet.create({
         display: "flex",
         marginLeft:30,
         marginTop:60
+        
         
        
         

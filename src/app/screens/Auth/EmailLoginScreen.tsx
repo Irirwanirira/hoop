@@ -1,26 +1,16 @@
-import React, { useContext } from "react";
-import Snackbar from "react-native-snackbar";
+import React, { useContext, useEffect } from "react";
 import {
   StyleSheet,
   Text,
-  Image,
   View,
-  TouchableHighlight,
   SafeAreaView,
-  Button,
-  Alert,
-  Platform,
-  StatusBar,
-  Dimensions,
   ImageBackground,
   TextInput,
+  Alert
 } from "react-native";
 import Input from "../../../components/Input";
 import LoginButton from "../../../components/LoginButton";
 import { COLORS } from "../../../constants";
-import { FontAwesome5 } from "@expo/vector-icons";
-import PasswordInput from "../../../components/PasswordInput";
-import Data from "../../../Data/data.json";
 import { useState } from "react";
 import { Link, router } from "expo-router";
 import { account } from "../../../upwrite";
@@ -36,8 +26,8 @@ interface UserType {
 function EmailLoginScreen() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [alert,setAlert]=useState<string>("")
 
-  const {user,  setUser } = useContext(UserContext);
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -46,18 +36,7 @@ function EmailLoginScreen() {
     }
     try {
       await account.createEmailSession(email, password);
-      const userInfo = await account.get();
-      
-      const loggedInUser: UserType = {
-        $id: userInfo.$id,
-        email: userInfo.email,
-        name: userInfo.name,
-        phone: userInfo.phone,
-      };
-
-      console.log(loggedInUser);
-      setUser(loggedInUser)
-      console.log("..........",user)
+      Alert.alert("Login successfully")
 
       router.navigate("/screens/Home/HomeView");
     } catch (error) {
@@ -86,7 +65,7 @@ function EmailLoginScreen() {
               value={email}
             />
             <TextInput
-              style={{ padding: 10, backgroundColor: "#fff", width: "auto" }}
+              style={{ padding: 15, backgroundColor: "#fff", width: "65%",borderRadius: 10,marginBottom: 20 }}
               placeholder="Password"
               onChangeText={setPassword}
               value={password}
