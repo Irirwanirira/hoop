@@ -5,22 +5,13 @@ import Input from '../../../components/Input';
 import LoginButton from '../../../components/LoginButton';
 import PasswordInput from '../../../components/PasswordInput';
 import { COLORS } from '../../../constants';
-import supabase  from '../../../supabase';
 function RegisterScreen() {
     const [email, setEmail] = useState<string>("")
     const [phoneNumber, setPhoneNumber] = useState<string>("")
     const [password, setPassword] = useState<string>("")
 
     const handleRegister = async (): Promise<void> => {
-        const { data, error } = await supabase.auth.signUp({
-            email: email,
-            password:password
-        })
-        if (error) {
-            console.log("Sign up failed")
-        } else {
-            console.log("new user",data)
-        }
+     
 
         
 }

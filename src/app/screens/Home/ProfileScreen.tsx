@@ -29,8 +29,16 @@ import {
   settingsIcon,
 } from "../../../constants/Icons";
 import Buttons from "../../../components/Buttons";
+import { account } from "../../../upwrite";
 
-const datas = [
+interface OnProfileItem {
+  id: string;
+  icon: string;
+  title: string;
+  direction: any;
+}
+
+const datas: OnProfileItem[] = [
   {
     id: "1",
     icon: `${profileIcon}`,
@@ -72,6 +80,7 @@ const CardComponents = ({ item }: { item: any }) => {
         alignItems: "center",
         marginTop: 40,
       }}
+      key={item.id}
     >
       
       <View style={{ flexDirection: "row", gap: 20 }}>
@@ -79,12 +88,16 @@ const CardComponents = ({ item }: { item: any }) => {
         <Text style={{ fontSize: SIZES.medium_18 }}>{item.title}</Text>
       </View>
        <Link href={item.direction}><Image style={{ width: 10, height: 15 }} source={rightIcon} /></Link>
-      
     </View>
   );
 };
 
 const ProfileScreen = () => {
+
+  const logOutUser = async()=> {
+    await account.deleteSessions()
+  }
+
   return (
     <View style={{ backgroundColor:"#081024" }}>
       <ImageBackground
@@ -142,7 +155,10 @@ const ProfileScreen = () => {
               gap: 10,
             }}
           >
-            <Image source={logoutIcon} resizeMode="cover" />
+            <Pressable onPress={()=> logOutUser() }>
+                <Image source={logoutIcon} resizeMode="cover" />
+
+            </Pressable>
           </View>
         </View>
       </ImageBackground>

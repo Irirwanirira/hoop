@@ -1,22 +1,17 @@
 import React,{useState} from 'react';
-import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,TextInput} from 'react-native'
+import { StyleSheet, Text, Image, View,TextInput} from 'react-native'
 import { COLORS } from '../constants';
 import { Ionicons } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
-
 interface PasswordProps{
     onChangeText: (text: string) => void
     value:string
     text:string
 }
 
-
-
 function PasswordInput({text}:PasswordProps) {
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
    
-    
     const toggleShowPassowrd = () => {
         setShowPassword(!showPassword)
     }
@@ -37,12 +32,8 @@ function PasswordInput({text}:PasswordProps) {
                 name={showPassword ? "eye" : "eye-off"}
                 size={24}
                 color={showPassword? "black":"grey"}
-                
                 />
             </View>
-           
-                
-           
         </View>
     );
 }
