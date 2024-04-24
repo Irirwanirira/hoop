@@ -4,30 +4,32 @@ import { Link } from 'expo-router';
 import Input from '../../../components/Input';
 import LoginButton from '../../../components/LoginButton';
 import PasswordInput from '../../../components/PasswordInput';
+import { router } from 'expo-router';
 import Data from "../../../Data/data.json"
 import { COLORS } from '../../../constants';
-
+import {ID} from "react-native-appwrite"
+import { account } from '../../../appwrite/Appwrite';
 function RegisterScreen() {
     const [email, setEmail] = useState<string>("")
     const [phoneNumber, setPhoneNumber] = useState<string>("")
     const [password, setPassword] = useState<string>("")
-
+    const [alert,setAlert]=useState("")
+    const handleCreate = async () => {
+        try {
+            await account.create(ID.unique(), email, password,"Joseph")
+            setAlert("New user registered successfully")
+            Alert.alert("New user registered successfully")
+            router.navigate("screens/Auth/EmailLoginScreen");
+        } catch (error) {
+            setAlert("Failed to register new user")
+            console.log(error)
+      }
+  }
    
-    const Register = () => {
-        const newUser = {
-        Email: email,
-        Phone: phoneNumber,
-        Password:password
-        
-    }
-     
-        Data.users.push(newUser)
-        console.log(newUser)
-        
-    }
+    
 
     return (
-        <SafeAreaView style={styles.container} >
+        <SafeAreaView style={styles.container}>
         <View style={styles.parent}>
             <View style={styles.upper}>
                 <ImageBackground source={require("../../../../assets/headImage.png")} style={styles.Image}>
@@ -36,7 +38,7 @@ function RegisterScreen() {
                     </View>
                 </ImageBackground>
             </View>
-            <View style={styles.LowerBig}>
+           <View style={styles.LowerBig}>
 
                <View style={styles.ViewInput}>
                     <Input text="Email" onChangeText={setEmail} value={email} />
@@ -50,7 +52,7 @@ function RegisterScreen() {
                     <View style={styles.ButtonView}>
                          <LoginButton
                     title="Register"
-                    onPress={Register}
+                    onPress={handleCreate}
                 
                     />
                     </View>
@@ -58,18 +60,8 @@ function RegisterScreen() {
                         <Text style={styles.LowerText}>Have an account? <Link href="/screens/Auth/EmailLoginScreen"><Text style={styles.retrieve}>Sign in</Text></Link></Text>    
 
                     </View>
-               
-                
             </View>
-            
-
-
-
-
-
-
-            </View>
-            
+            </View>    
        </View>
       </SafeAreaView>
         
