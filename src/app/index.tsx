@@ -3,6 +3,7 @@ import { View, StyleSheet } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import WelcomeScreen from "./screens/LandingPage/WelcomeScreen";
 import UserContextProvider from "../context/UserContextProvider";
+import HomeView from "./screens/Home/HomeView";
 
 function index() {
   const [isReady, setIsReady] = useState(false);
@@ -33,7 +34,8 @@ function index() {
   return (
     <UserContextProvider>
       <View onLayout={onLayoutViewRootView} style={styles.container}>
-        <WelcomeScreen />
+        {/* <WelcomeScreen /> */}
+        <HomeView />
       </View>
     </UserContextProvider>
   );

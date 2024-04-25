@@ -17,6 +17,7 @@ import {
 } from "../../../constants/Icons";
 import { parkDetailImage } from "../../../constants/Images";
 import { Link, router } from "expo-router";
+import { useRoute } from "@react-navigation/native";
 
 const datas = [
   {
@@ -40,6 +41,11 @@ const datas = [
 ];
 
 const ParkingDetailsScreen = () => {
+
+  const route = useRoute()
+  const { id } = route.params;
+  console.log(id)
+
   return (
     <SafeAreaView style={styles.container}>
        <Pressable
