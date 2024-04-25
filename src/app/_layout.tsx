@@ -157,7 +157,7 @@ const _layout = () => {
                 }}
             />
 
-            <Stack.Screen name= "screens/Home/ParkingDetails"
+            <Stack.Screen name= "screens/Home/parking/index"
                     options={{
                     headerTitle: "",
                     headerShown: false,

@@ -9,13 +9,13 @@ import {
   Linking,
   ScrollView,
 } from "react-native";
-import { mall, COLORS, SIZES } from "../../../constants";
+import { mall, COLORS, SIZES } from "../../../../constants";
 import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
-import UserContext from "../../../context/UserContext";
-import { account, databases } from "../../../upwrite";
-import Category from "../../../components/Category";
-import HomeCardComponent from "../../../components/cards/HomeCardComponent";
+import UserContext from "../../../../context/UserContext";
+import { account, databases } from "../../../../upwrite";
+import Category from "../../../../components/Category";
+import HomeCardComponent from "../../../../components/cards/HomeCardComponent";
 
 interface directionData {
   $id?: string;
@@ -69,7 +69,7 @@ const HomeView = () => {
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.Primary }}>
       <ImageBackground
-        source={require("../../../../assets/images/maskBackgroundImage.png")}
+        source={require("../../../../../assets/images/maskBackgroundImage.png")}
         resizeMode="cover"
         style={{ padding: 40, backgroundColor: "#0A1124" }}
       >
@@ -171,10 +171,8 @@ const HomeView = () => {
           </Text>
           <View>
               <FlatList 
-                showsVerticalScrollIndicator={true}
                 data={parkingList}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={({ item }) => <HomeCardComponent item={item} />}
+                renderItem={({ item }) => <HomeCardComponent park={item} />}
               />
           </View>
         </View>

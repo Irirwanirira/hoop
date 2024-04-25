@@ -4,7 +4,7 @@ import { View , Image, Text, StyleSheet} from 'react-native';
 
 import { COLORS, mall, SIZES } from '../../constants';
 
-const HomeCardComponent = ({item} : {item: any}) => {
+const HomeCardComponent = ({park} : {park: any}) => {
     const [booked, setIsBooked] = useState(true)
 
   return (
@@ -21,14 +21,14 @@ const HomeCardComponent = ({item} : {item: any}) => {
         }}
       >
         <Link href={{
-            pathname: "/screens/Home/ParkingDetails/[id]",
-            params: {id: item.$id}
+            pathname: "parking/[id]",
+            params: {id: park.$id}
             }}>
-          <View style={{ flexDirection: "row", gap: 20 }} key={item.$id}>
+          <View style={{ flexDirection: "row", gap: 20 }} key={park.$id}>
             <Image source={mall} />
             <View>
               <Text style={{ color: COLORS.Primary, fontSize: SIZES.large }}>
-                {item.name}
+                {park.name}
               </Text>
               <Text
                 style={{
@@ -37,7 +37,7 @@ const HomeCardComponent = ({item} : {item: any}) => {
                   opacity: 0.5,
                 }}
               >
-                {item.adress}
+                {park.adress}
               </Text>
               <Text
                 style={{
@@ -47,7 +47,7 @@ const HomeCardComponent = ({item} : {item: any}) => {
                   marginTop: 15,
                 }}
               >
-                ${item.price}
+                ${park.price}
                 <Text style={{ fontWeight: "normal", fontSize: SIZES.medium_m }}>
                   {" "}
                   /hour

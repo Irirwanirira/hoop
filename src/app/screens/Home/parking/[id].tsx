@@ -8,42 +8,20 @@ import {
   TouchableOpacity,
   Pressable
 } from "react-native";
-import { mall, COLORS, SIZES } from "../../../constants";
+import { mall, COLORS, SIZES } from "../../../../constants";
 import {
   currentLocationIcon,
   leftArrowWithBackground,
   locationIcon,
   timeIcon,
-} from "../../../constants/Icons";
-import { parkDetailImage } from "../../../constants/Images";
-import { Link, router } from "expo-router";
-import { useRoute } from "@react-navigation/native";
+} from "../../../../constants/Icons";
+import { parkDetailImage } from "../../../../constants/Images";
+import { Link, router, useLocalSearchParams } from "expo-router";
 
-const datas = [
-  {
-    id: "1",
-    name: "Graha Mall",
-    address: "123 Duke Street",
-    price: 7,
-    time: 7,
-    image: `${mall}`,
-    date: "12 Aug",
-  },
-  {
-    id: "2",
-    name: "Graha Mall",
-    address: "123 Duke Street",
-    price: 7,
-    time: 7,
-    image: `${mall}`,
-    date: "12 Aug",
-  },
-];
 
 const ParkingDetailsScreen = () => {
 
-  const route = useRoute()
-  const { id } = route.params;
+  const { id } = useLocalSearchParams<{id: string}>();
   console.log(id)
 
   return (
@@ -194,7 +172,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F4F4FA",
     paddingHorizontal: 30,
-    paddingVertical: 90,
+    paddingVertical: 20,
   },
 });
 
