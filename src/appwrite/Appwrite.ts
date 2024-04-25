@@ -9,7 +9,6 @@ client
     .setProject("66267df155ecc331dbc8")
     
 
-
 const databases = new Databases(client);
 
 const account = new Account(client)

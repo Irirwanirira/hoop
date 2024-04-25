@@ -68,12 +68,12 @@ const _layout = () => {
             }}
       />
 
-      <Stack.Screen name= "screens/Home/HomeView"
+      {/* <Stack.Screen name= "screens/Home/HomeView"
                       options={{
                       headerTitle: "",
                       headerShown: false,
                   }}
-          />
+          /> */}
            <Stack.Screen name= "screens/Home/ProfileScreen"
                       options={{
                       headerTitle: "",
@@ -157,12 +157,12 @@ const _layout = () => {
                 }}
             />
 
-            <Stack.Screen name= "screens/Home/ParkingDetails"
+            {/* <Stack.Screen name= "screens/Home/parking/homeScreen"
                     options={{
                     headerTitle: "",
                     headerShown: false,
                 }}
-            />
+            /> */}
     </Stack>
   )
 }
@@ -178,4 +178,3 @@ const styles = StyleSheet.create({
   });
 
 export default _layout
-

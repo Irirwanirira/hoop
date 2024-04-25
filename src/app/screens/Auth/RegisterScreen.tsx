@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions, ImageBackground } from 'react-native'
+import {ID} from "react-native-appwrite"
+import { StyleSheet, Text, Image, View, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions, ImageBackground } from 'react-native'
 import { Link } from 'expo-router';
 import Input from '../../../components/Input';
 import LoginButton from '../../../components/LoginButton';
 import PasswordInput from '../../../components/PasswordInput';
-import { router } from 'expo-router';
-import Data from "../../../Data/data.json"
 import { COLORS } from '../../../constants';
-import {ID} from "react-native-appwrite"
 import { account } from '../../../appwrite/Appwrite';
+import { router } from 'expo-router';
 function RegisterScreen() {
     const [email, setEmail] = useState<string>("")
     const [phoneNumber, setPhoneNumber] = useState<string>("")
     const [password, setPassword] = useState<string>("")
-    const [alert,setAlert]=useState("")
+    const [alert,setAlert]=useState<string>("")
+
+
     const handleCreate = async () => {
         try {
-            await account.create(ID.unique(), email, password,"Joseph")
+            
+            const response =await account.create(ID.unique(), email, password,"Joseph")
             setAlert("New user registered successfully")
             Alert.alert("New user registered successfully")
             router.navigate("screens/Auth/EmailLoginScreen");
@@ -25,11 +27,8 @@ function RegisterScreen() {
             console.log(error)
       }
   }
-   
-    
-
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.container} >
         <View style={styles.parent}>
             <View style={styles.upper}>
                 <ImageBackground source={require("../../../../assets/headImage.png")} style={styles.Image}>
@@ -38,7 +37,7 @@ function RegisterScreen() {
                     </View>
                 </ImageBackground>
             </View>
-           <View style={styles.LowerBig}>
+            <View style={styles.LowerBig}>
 
                <View style={styles.ViewInput}>
                     <Input text="Email" onChangeText={setEmail} value={email} />
@@ -61,7 +60,8 @@ function RegisterScreen() {
 
                     </View>
             </View>
-            </View>    
+            </View>
+            
        </View>
       </SafeAreaView>
         
@@ -72,6 +72,7 @@ export default RegisterScreen;
 
 const styles = StyleSheet.create({
      container: {
+
         display: "flex",
         flexDirection:"row",
         backgroundColor:"#F4F4FA",
@@ -83,6 +84,7 @@ const styles = StyleSheet.create({
         display: "flex",
         marginLeft:30,
         marginTop:60
+        
         
        
         
