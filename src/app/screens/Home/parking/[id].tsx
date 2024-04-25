@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import {ID} from "react-native-appwrite"
 import {
   View,
   Text,
@@ -17,12 +18,58 @@ import {
 } from "../../../../constants/Icons";
 import { parkDetailImage } from "../../../../constants/Images";
 import { Link, router, useLocalSearchParams } from "expo-router";
+import { databases } from "../../../../upwrite";
 
+interface parkingType{
+  id: any
+  name: string,
+  price: string,
+  address: string,
+  isBooked: boolean
+}
 
 const ParkingDetailsScreen = () => {
-
+  const [parkDetail, setParkDetail] = useState<parkingType | null>(null)
+  const [bookIt, setBookedIt] = useState<boolean>(false)
   const { id } = useLocalSearchParams<{id: string}>();
-  console.log(id)
+
+  useEffect(()=> {
+    const fetchParking = async()=> {
+      try {
+        const park = await databases.getDocument(
+            'hoopDatabase',
+            '66296e5b134e7f12ff59',
+            id
+        )
+        const {$id, name, price, isBooked, adress} = park 
+        setParkDetail({
+          id: $id,
+          name,
+          price,
+          address:adress,
+          isBooked,
+        });
+      } catch (error) {
+          console.log("error", error)
+      }
+    }
+    fetchParking()
+  }, [bookIt])
+  console.log(parkDetail?.address)
+
+  const bookParking = async()=> {
+    try {
+    const park = await databases.updateDocument(
+        'hoopDatabase',
+          '66296e5b134e7f12ff59',
+          id,
+          {"isBooked": bookIt}
+      )
+      setBookedIt(!bookIt)
+    } catch (error) {
+        console.log("error", error)
+    }
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -39,7 +86,7 @@ const ParkingDetailsScreen = () => {
             source={leftArrowWithBackground}
             />
 
-            <Text style={{ fontSize: SIZES.medium_m }}>Details</Text>
+            <Text style={{ fontSize: SIZES.medium_m }}>details</Text>
             <View></View>
       </Pressable>
 
@@ -67,7 +114,7 @@ const ParkingDetailsScreen = () => {
 
       <View style={{ marginTop: 50, alignItems: "center", gap: 10 }}>
         <Text style={{ color: COLORS.Primary, fontSize: SIZES.large }}>
-          Graha Mall
+          {parkDetail?.name}
         </Text>
         <Text
           style={{
@@ -76,7 +123,7 @@ const ParkingDetailsScreen = () => {
             opacity: 0.5,
           }}
         >
-          123 Dhaka Street
+          {parkDetail?.address}
         </Text>
       </View>
 
@@ -145,24 +192,22 @@ const ParkingDetailsScreen = () => {
         </Text>
 
         <TouchableOpacity
-          style={{
-            backgroundColor: "#130F26",
+          style={[parkDetail?.isBooked ? styles.booked : styles.notBooked,{
             paddingHorizontal: 70,
             paddingVertical: 20,
             borderRadius: 10,
             position: "absolute",
             bottom: -25,
-          }}
+          }]}
         >
-          <Link href={"/screens/Home/TrackingParkScreen"}>
+          <Pressable
+            onPress={bookParking }>
             <Text style={{ color: COLORS.Secondary, fontSize: SIZES.medium }}>
-              Book now
+              {parkDetail?.isBooked ? "booked" : "Book now"}
             </Text>
-          </Link>
+          </Pressable>
         </TouchableOpacity>
       </View>
-
-      <View></View>
     </SafeAreaView>
   );
 };
@@ -174,6 +219,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     paddingVertical: 20,
   },
+
+  booked:{
+    backgroundColor: "#f5481d",
+  },
+  notBooked:{
+    backgroundColor: "#130F26",  }
 });
 
 export default ParkingDetailsScreen;

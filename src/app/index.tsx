@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import WelcomeScreen from "./screens/LandingPage/WelcomeScreen";
 import UserContextProvider from "../context/UserContextProvider";
-import HomeView from "./screens/Home/parking/index"
+import HomeView from "./screens/Home/parking"
 
 function index() {
   const [isReady, setIsReady] = useState(false);

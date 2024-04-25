@@ -43,7 +43,7 @@ const HomeView = () => {
           'hoopDatabase',
           '66296e5b134e7f12ff59',
       )
-        return setParkingList(list.documents)
+      setParkingList(list.documents)
   
     } catch (error) {
         console.log("error", error)
@@ -54,7 +54,6 @@ const HomeView = () => {
     const current = account.get()
     current
     .then((response: any) => {
-      console.log(response)
         const {name, email, $id, phone} = response;
         setData({name, email, $id, phone} as UserType)
     })
@@ -64,7 +63,7 @@ const HomeView = () => {
     })
     fetchParking()
 
-  }, []);
+  }, [data]);
 
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.Primary }}>
@@ -142,10 +141,12 @@ const HomeView = () => {
         </View>
       </ImageBackground>
 
-      <View
+      <ScrollView
+      alwaysBounceVertical
         style={{
+          
           backgroundColor: "#F4F4FA",
-          borderTopEndRadius: 30,
+          borderRadius: 30,
           borderTopStartRadius: 30,
           padding: 40,
         }}
@@ -170,13 +171,12 @@ const HomeView = () => {
             Nearest Parking Spaces
           </Text>
           <View>
-              <FlatList 
-                data={parkingList}
-                renderItem={({ item }) => <HomeCardComponent park={item} />}
-              />
+            {
+                parkingList.map((item: any ) => <HomeCardComponent key={item.$id} park={item}/>)
+            }
           </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 };

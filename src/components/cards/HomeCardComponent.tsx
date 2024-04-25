@@ -1,14 +1,13 @@
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import React, { useState } from 'react'
-import { View , Image, Text, StyleSheet} from 'react-native';
+import { View , Image, Text, StyleSheet, Pressable} from 'react-native';
 
 import { COLORS, mall, SIZES } from '../../constants';
 
-const HomeCardComponent = ({park} : {park: any}) => {
-    const [booked, setIsBooked] = useState(true)
+const HomeCardComponent = ({park } : {park: any}) => {
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} >
         <View
         style={{
           flexDirection: "row",
@@ -20,15 +19,19 @@ const HomeCardComponent = ({park} : {park: any}) => {
           borderRadius: 20,
         }}
       >
-        <Link href={{
-            pathname: "parking/[id]",
+        <Pressable
+        onPress={
+          ()=> {router.push({
+            pathname: "/screens/Home/parking/[id]",
             params: {id: park.$id}
-            }}>
-          <View style={{ flexDirection: "row", gap: 20 }} key={park.$id}>
+          })}
+        }
+        >
+          <View style={{ flexDirection: "row", gap: 20 }}>
             <Image source={mall} />
             <View>
               <Text style={{ color: COLORS.Primary, fontSize: SIZES.large }}>
-                {park.name}
+                {park?.name.slice(0,8) + "..." }
               </Text>
               <Text
                 style={{
@@ -52,14 +55,11 @@ const HomeCardComponent = ({park} : {park: any}) => {
                   {" "}
                   /hour
                 </Text>
-                <Text 
-                style={booked ? styles.booked : styles.notBooked}
-                >{booked ? "booked" : ""}</Text>
               </Text>
             </View>
           </View>
-        </Link>
-  
+        </Pressable>
+        <View style={{alignItems: "center"}}>
         <Text
           style={{
             backgroundColor: "#FFF3F3",
@@ -72,6 +72,10 @@ const HomeCardComponent = ({park} : {park: any}) => {
         >
           {7} min
         </Text>
+        <Text 
+            style={park?.isBooked ? styles.booked : styles.notBooked}
+            >{park?.isBooked ? "booked" : ""}</Text>
+        </View>
       </View>
     </View>
   )
@@ -84,9 +88,9 @@ const styles = StyleSheet.create({
     booked: {
         color: "green",
         fontSize: 10,
-        textAlign: "center"
+        marginTop: 50
     },
-    notBooked: {color: "red"}
+    notBooked: {}
 })
 
 export default HomeCardComponent
