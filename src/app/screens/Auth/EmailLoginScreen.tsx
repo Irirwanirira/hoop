@@ -37,7 +37,7 @@ function EmailLoginScreen() {
       await account.createEmailSession(email, password);
       Alert.alert("Login successfully")
 
-      router.navigate("/screens/Home/HomeView");
+      router.navigate("screens/Home/parking");
     } catch (error) {
       console.log("unable to login ", error);
     }

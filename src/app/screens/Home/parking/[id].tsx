@@ -30,6 +30,7 @@ interface parkingType{
 
 const ParkingDetailsScreen = () => {
   const [parkDetail, setParkDetail] = useState<parkingType | null>(null)
+  const [bookIt, setBookedIt] = useState<boolean>(false)
   const { id } = useLocalSearchParams<{id: string}>();
 
   useEffect(()=> {
@@ -53,10 +54,21 @@ const ParkingDetailsScreen = () => {
       }
     }
     fetchParking()
-  }, [])
-  console.log(parkDetail?.address)
+  }, [bookIt])
 
-  
+  const bookParking = async()=> {
+    try {
+    const park = await databases.updateDocument(
+        'hoopDatabase',
+          '66296e5b134e7f12ff59',
+          id,
+          {"isBooked": bookIt}
+      )
+      setBookedIt(!bookIt)
+    } catch (error) {
+        console.log("error", error)
+    }
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -187,10 +199,10 @@ const ParkingDetailsScreen = () => {
             bottom: -25,
           }]}
         >
-          <Pressable>
-           
+          <Pressable
+            onPress={bookParking }>
             <Text style={{ color: COLORS.Secondary, fontSize: SIZES.medium }}>
-              {"Book now"}
+              {parkDetail?.isBooked ? "booked" : "Book now"}
             </Text>
           </Pressable>
         </TouchableOpacity>
