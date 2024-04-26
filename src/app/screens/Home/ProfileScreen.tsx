@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable } from "react-native";
 import { Link,router } from "expo-router";
@@ -29,6 +29,8 @@ import {
   settingsIcon,
 } from "../../../constants/Icons";
 import Buttons from "../../../components/Buttons";
+import { account } from "../../../appwrite/Appwrite";
+import { UserType } from "../../../context/UserContext";
 
 const datas = [
   {
@@ -85,6 +87,22 @@ const CardComponents = ({ item }: { item: any }) => {
 };
 
 const ProfileScreen = () => {
+
+  const [data, setData] = useState<UserType>([] as any)
+
+  useEffect(() => {
+      const current = account.get()
+      current
+      .then((response: any) => {
+          const {name, email, $id, phone} = response;
+          setData({name, email, $id, phone} as UserType)
+      })
+      .catch((error: any) => {
+          console.log(error)
+          setData({name: "guest" ,email: "", $id: "", phone: ""} as UserType)
+      })
+  
+    }, [data]);
   return (
     <View style={{ backgroundColor:"#081024" }}>
       <ImageBackground
@@ -128,7 +146,7 @@ const ProfileScreen = () => {
                 Welcome
               </Text>
               <Text style={{ fontSize: 28, color: COLORS.Secondary }}>
-                Diane
+                {data.name}
               </Text>
             </View>
           </View>
