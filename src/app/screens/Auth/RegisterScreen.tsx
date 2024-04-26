@@ -13,12 +13,12 @@ function RegisterScreen() {
     const [phoneNumber, setPhoneNumber] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const [alert,setAlert]=useState<string>("")
-
+    const [comfirmPassword,setComfirmPassword]=useState("")
 
     const handleCreate = async () => {
         try {
             
-            const response =await account.create(ID.unique(), email, password,"Joseph")
+            await account.create(ID.unique(), email, password,"Joseph")
             setAlert("New user registered successfully")
             Alert.alert("New user registered successfully")
             router.navigate("screens/Auth/EmailLoginScreen");
@@ -42,8 +42,8 @@ function RegisterScreen() {
                <View style={styles.ViewInput}>
                     <Input text="Email" onChangeText={setEmail} value={email} />
                     
-                  <PasswordInput text="Password" onChangeText={newText =>setPassword(newText)}  value={password}password={password} setPassword={setPassword}/>
-                    <Input text="Password Authentication"  onChangeText={newText =>setPassword(newText)}  value={password} />
+                    <PasswordInput text="Password" onChangeText={newText => setPassword(newText)}  value={password} password={password} setPassword={setPassword}/>
+                    <Input text="Password Authentication"  onChangeText={newText =>setComfirmPassword(newText)}  value={comfirmPassword} />
                         <Input text="Phone Number" onChangeText={setPhoneNumber} value={phoneNumber} />
                         
             </View>

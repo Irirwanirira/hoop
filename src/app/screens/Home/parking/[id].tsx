@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F4F4FA",
     paddingHorizontal: 30,
-    paddingVertical: 20,
+    paddingVertical: 80,
   },
 
   booked:{

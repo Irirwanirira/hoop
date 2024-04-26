@@ -15,27 +15,30 @@ import { COLORS } from "../../../constants";
 import { useState } from "react";
 import { Link, router } from "expo-router";
 import { account } from "../../../appwrite/Appwrite";
-
-interface UserType {
-  $id: string;
-  name: string;
-  email: string;
-  phone?: string;
-}
+import UserContext, { UserType } from "../../../context/UserContext";
 
 function EmailLoginScreen() {
-  const [email, setEmail] = useState<string>("");
+  const [emails, setEmails] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [alert,setAlert]=useState<string>("")
 
+  const {updateUserState} = useContext(UserContext)
 
   const handleLogin = async () => {
-    if (!email || !password) {
+    if (!emails || !password) {
       console.log("Please enter both email and password.");
       return;
     }
     try {
-      await account.createEmailSession(email, password);
+      await account.createEmailSession(emails, password);
+      const current = await account.get()
+      // const newUser: UserType = {
+      //   $id:current.$id,
+      //   name: current.name,
+      //   email: current.email,
+      //   phone: current.phone,
+      // }
+      const {$id, name ,email, phone} = current
+      updateUserState({$id, email, name, phone} as UserType)
       Alert.alert("Login successfully")
 
       router.navigate("screens/Home/parking");
@@ -61,8 +64,8 @@ function EmailLoginScreen() {
           <View style={styles.ViewInput}>
             <Input
               text="Email"
-              onChangeText={(newText) => setEmail(newText)}
-              value={email}
+              onChangeText={(newText) => setEmails(newText)}
+              value={emails}
             />
               <PasswordInput text="Password" onChangeText={newText =>setPassword(newText)}  value={password}password={password} setPassword={setPassword}/>
             <View style={styles.Forget}>

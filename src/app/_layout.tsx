@@ -5,7 +5,14 @@ import React from 'react'
 const _layout = () => {
   return (
     <Stack >
-        <Stack.Screen name= "index"
+        <Stack.Screen name= "screens/Home/parking/index"
+            options={{
+                headerTitle: "splash screen",
+                headerShown: false,
+                headerStyle: {}
+            }}
+          />
+          <Stack.Screen name= "screens/Home/parking/[id]"
             options={{
                 headerTitle: "splash screen",
                 headerShown: false,
@@ -14,13 +21,15 @@ const _layout = () => {
         />
           <Stack.Screen name= "screens/LandingPage/HollaScreen"
                 options={{
-                headerTitle: "Hollaaaaa",
+                    headerTitle: "Hollaaaaa",
+                    headerShown:false
             }}
         />
 
         <Stack.Screen name= "screens/LandingPage/WelcomeScreen"
                 options={{
-                headerTitle: "Welcome screen",
+                    headerTitle: "Welcome screen",
+                    headerShown:false
             }}
         />
 
