@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { View, StyleSheet } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
-
 import WelcomeScreen from "./screens/LandingPage/WelcomeScreen";
 import HomeView from "./screens/Home/parking"
+import UserContextProvider from "../context/UserContextProvider";
 
 function index() {
   const [isReady, setIsReady] = useState(false);
@@ -32,12 +32,12 @@ function index() {
   }
 
   return (
-    // <UserContextProvider>
+    <UserContextProvider>
       <View onLayout={onLayoutViewRootView} style={styles.container}>
         <WelcomeScreen />
         {/* <HomeView /> */}
       </View>
-    // </UserContextProvider>
+    </UserContextProvider>
   );
 }
 const styles = StyleSheet.create({
