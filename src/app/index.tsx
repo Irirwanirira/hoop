@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { View, StyleSheet } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
-
+import EmailLoginScreen from "./screens/Auth/EmailLoginScreen";
 import WelcomeScreen from "./screens/LandingPage/WelcomeScreen";
 import HomeView from "./screens/Home/parking"
-
+import PhoneScreenLogin from "./screens/Auth/PhoneScreenLogin";
 function index() {
   const [isReady, setIsReady] = useState(false);
   useEffect(() => {
@@ -34,7 +34,9 @@ function index() {
   return (
     // <UserContextProvider>
       <View onLayout={onLayoutViewRootView} style={styles.container}>
-        <WelcomeScreen />
+      {/* <WelcomeScreen /> */}
+      <EmailLoginScreen/>
+      {/* <PhoneScreenLogin/> */}
         {/* <HomeView /> */}
       </View>
     // </UserContextProvider>
