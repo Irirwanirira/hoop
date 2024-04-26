@@ -13,7 +13,7 @@ function RegisterScreen() {
     const [phoneNumber, setPhoneNumber] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const [alert,setAlert]=useState<string>("")
-
+    const [comfirmPassword,setComfirmPassword]=useState("")
 
     const handleCreate = async () => {
         try {
@@ -43,7 +43,7 @@ function RegisterScreen() {
                     <Input text="Email" onChangeText={setEmail} value={email} />
                     
                     <PasswordInput text="Password" onChangeText={newText => setPassword(newText)}  value={password} password={password} setPassword={setPassword}/>
-                    <Input text="Password Authentication"  onChangeText={newText =>setPassword(newText)}  value={password} />
+                    <Input text="Password Authentication"  onChangeText={newText =>setComfirmPassword(newText)}  value={comfirmPassword} />
                         <Input text="Phone Number" onChangeText={setPhoneNumber} value={phoneNumber} />
                         
             </View>
