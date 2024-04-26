@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { View, StyleSheet } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
-import EmailLoginScreen from "./screens/Auth/EmailLoginScreen";
 import WelcomeScreen from "./screens/LandingPage/WelcomeScreen";
 import HomeView from "./screens/Home/parking"
-import PhoneScreenLogin from "./screens/Auth/PhoneScreenLogin";
+import UserContextProvider from "../context/UserContextProvider";
+
 function index() {
   const [isReady, setIsReady] = useState(false);
   useEffect(() => {
@@ -32,14 +32,12 @@ function index() {
   }
 
   return (
-    // <UserContextProvider>
+    <UserContextProvider>
       <View onLayout={onLayoutViewRootView} style={styles.container}>
-      {/* <WelcomeScreen /> */}
-      <EmailLoginScreen/>
-      {/* <PhoneScreenLogin/> */}
+        <WelcomeScreen />
         {/* <HomeView /> */}
       </View>
-    // </UserContextProvider>
+    </UserContextProvider>
   );
 }
 const styles = StyleSheet.create({

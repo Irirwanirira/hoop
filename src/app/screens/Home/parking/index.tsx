@@ -3,10 +3,7 @@ import {
   View,
   Text,
   TextInput,
-  Image,
-  FlatList,
   ImageBackground,
-  Linking,
   ScrollView,
 } from "react-native";
 import { mall, COLORS, SIZES } from "../../../../constants";
@@ -15,26 +12,19 @@ import { Link } from "expo-router";
 import { account, databases } from "../../../../appwrite/Appwrite";
 import Category from "../../../../components/Category";
 import HomeCardComponent from "../../../../components/cards/HomeCardComponent";
-
-interface directionData {
-  $id?: string;
-  name?: string;
-  address?: string;
-  price?: number;
-  time?: number;
-  image?: any;
-}
-
-interface UserType {
-  $id: string;
-  name: string;
-  email: string;
-}
+import { UserType } from "../../../../context/UserContext";
+import UserContext from "../../../../context/UserContext";
 
 const HomeView = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [data, setData] = useState<UserType>([] as any)
   const [parkingList, setParkingList] = useState([])
+
+  const {userState} = useContext(UserContext)
+
+
+  if (userState === null) {
+    return <Text>Loading...</Text>;
+  }
 
   const fetchParking = async()=> {
     try {
@@ -82,7 +72,7 @@ const HomeView = () => {
           <View>
             <Link href="/screens/Home/ProfileScreen">
               <Text style={{ fontSize: 28, color: COLORS.Secondary }}>
-                Hola, {data.name}👋🏻
+                `Hola, {data.name}👋🏻
               </Text>
             </Link>
             <Text
