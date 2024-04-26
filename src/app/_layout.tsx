@@ -5,6 +5,13 @@ import React from 'react'
 const _layout = () => {
   return (
     <Stack >
+            <Stack.Screen name= "index"
+            options={{
+                headerTitle: "splash screen",
+                headerShown: false,
+                headerStyle: {}
+            }}
+          />
         <Stack.Screen name= "screens/Home/parking/index"
             options={{
                 headerTitle: "splash screen",
@@ -77,12 +84,6 @@ const _layout = () => {
             }}
       />
 
-      {/* <Stack.Screen name= "screens/Home/HomeView"
-                      options={{
-                      headerTitle: "",
-                      headerShown: false,
-                  }}
-          /> */}
            <Stack.Screen name= "screens/Home/ProfileScreen"
                       options={{
                       headerTitle: "",
@@ -165,13 +166,6 @@ const _layout = () => {
                     headerShown: false,
                 }}
             />
-
-            {/* <Stack.Screen name= "screens/Home/parking/homeScreen"
-                    options={{
-                    headerTitle: "",
-                    headerShown: false,
-                }}
-            /> */}
     </Stack>
   )
 }
