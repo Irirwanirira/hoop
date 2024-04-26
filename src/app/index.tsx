@@ -4,7 +4,7 @@ import * as SplashScreen from "expo-splash-screen";
 import WelcomeScreen from "./screens/LandingPage/WelcomeScreen";
 import HomeView from "./screens/Home/parking"
 import UserContextProvider from "../context/UserContextProvider";
-
+import EditProfileScreen from "./screens/EditProfile/EditProfileScreen";
 function index() {
   const [isReady, setIsReady] = useState(false);
   useEffect(() => {
@@ -35,6 +35,7 @@ function index() {
     <UserContextProvider>
       <View onLayout={onLayoutViewRootView} style={styles.container}>
         <WelcomeScreen />
+        {/* <EditProfileScreen/> */}
         {/* <HomeView /> */}
       </View>
     </UserContextProvider>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useEffect, useState } from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground,ScrollView, Pressable } from 'react-native'
 import { router, useNavigation } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -6,8 +6,25 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import EditProfileInput from '../../../components/EditProfileInput';
 import ProfiteBtn from '../../../components/ProfiteBtn';
 import ProfileRoleSelector from '../../../components/ProfileRoleSelector';
-
+import { account } from '../../../appwrite/Appwrite';
+import { UserType } from '../../../context/UserContext';
 function EditProfileScreen() {
+    const [Data, setData] = useState<UserType>([] as any)
+    const [name,setName]=useState(Data.name)
+    useEffect(() => {
+        const current = account.get()
+        current
+            .then((response: any) => {
+                const { name, email, $id, phone } = response
+                setData({name,email,$id,phone}as UserType)
+            }).catch((error: any) => {
+                console.log(error)
+                setData({name:"",email:"",$id:"",phone:""}as UserType)
+        })
+    }, [Data])
+    const handleNameChange = (newName:string) => {
+        setName(newName)
+    }
     return (
      <SafeAreaView style={styles.container}>
         <View style={styles.parent} >
@@ -40,7 +57,12 @@ function EditProfileScreen() {
                         <Text style={styles.head}>Name</Text>
                        </View>
                     <View>
-                         <EditProfileInput value="Name"/>
+                                <EditProfileInput
+                                    value={name}
+                                    onChangeText={handleNameChange}
+
+                                
+                                />
                     </View>  
                     </View>
                     

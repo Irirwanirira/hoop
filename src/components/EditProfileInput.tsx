@@ -4,16 +4,18 @@ import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button
 interface inputStyleProps{
     value: string,
     width?: number,
-    height?:number
+    height?: number,
+    onChangeText?:(text:string)=>void
 }
 
 
-function EditProfileInput({value,width=311,height=54}:inputStyleProps) {
+function EditProfileInput({value,width=311,height=54,onChangeText}:inputStyleProps) {
     return (
        <SafeAreaView>
             <TextInput
                style={[styles.inputStyle,{width,height}]}  
                 value={value}
+                onChangeText={onChangeText}
             />
 
         </SafeAreaView>
