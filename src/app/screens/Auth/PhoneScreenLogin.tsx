@@ -1,16 +1,35 @@
 import React from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
-import { Link } from 'expo-router';
+import { Link,router } from 'expo-router';
 import Input from '../../../components/Input';
 import LoginButton from '../../../components/LoginButton';
 import { COLORS } from '../../../constants';
 import { useState } from 'react';
 import PasswordInput from '../../../components/PasswordInput';
 import PhoneNumberInput from '../../../components/PhoneNumberInput';
+import { account } from "../../../appwrite/Appwrite";
 
 function PhoneScreenLogin() {
-     const [email, setEmail] = useState<string>("")
-    const [password, setPassword] = useState<string>("")
+    const [password, setPassword] = useState<string>("")  
+  const [countryCode, setCountryCode] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+    const fullNumber = `${countryCode}${phoneNumber}`
+    const pass=password
+    const handleLogin = async () => {
+        console.log(fullNumber,pass)
+    if (!fullNumber || !password) {
+      console.log("Please enter both email and password.");
+      return;
+    }
+    try {
+      await account.createPhoneSession(fullNumber, password);
+      Alert.alert("Login successfully")
+
+      router.navigate("screens/Home/parking");
+    } catch (error) {
+      console.log("unable to login ", error);
+    }
+  };
     return (
          <SafeAreaView  style={styles.container} >
          <View style={styles.parent}>
@@ -24,9 +43,15 @@ function PhoneScreenLogin() {
             <View style={styles.LowerBig}>
 
                 <View style={styles.ViewInput}>
-                <PhoneNumberInput/>
+                 <PhoneNumberInput
+                            countryCode={countryCode}
+                            setCountryCode={setCountryCode}
+                            phoneNumber={phoneNumber}
+                            setPhoneNumber={setPhoneNumber}
+
+                 />
                 
-                 <PasswordInput text="Password" onChangeText={newText =>setPassword(newText)}  value={password} />
+                 <PasswordInput text="Password" onChangeText={newText =>setPassword(newText)}  value={password} password={password} setPassword={setPassword} />
                     <View style={styles.Forget}>
                         <Text style={styles.forgetText}>Forget password? <Link href="/screens/Auth/ForgetPasswordScreen"><Text style={styles.retrieve}>Retrieve</Text></Link></Text>
                     </View>    
@@ -37,7 +62,7 @@ function PhoneScreenLogin() {
                     <View style={styles.ButtonView}>
                          <LoginButton
                     title="Login"
-                    onPress={()=>console.log("yes")}
+                    onPress={handleLogin}
                 
                     />
                     </View>

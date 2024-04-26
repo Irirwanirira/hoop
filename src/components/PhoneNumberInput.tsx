@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, SafeAreaView } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
+interface phoneInputProps{
+  countryCode: string,
+  setCountryCode: React.Dispatch<React.SetStateAction<string>>,
+  phoneNumber: string,
+  setPhoneNumber:React.Dispatch<React.SetStateAction<string>>
+}
 
-function PhoneNumberInput() {
+function PhoneNumberInput({countryCode, setCountryCode,phoneNumber, setPhoneNumber}:phoneInputProps) {
    
     
-  const [countryCode, setCountryCode] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  // const [countryCode, setCountryCode] = useState('');
+  // const [phoneNumber, setPhoneNumber] = useState('');
 
   const countryCodes = [
     { label: '+250', value: '+250' },

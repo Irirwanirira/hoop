@@ -40,7 +40,7 @@ function EmailLoginScreen() {
       updateUserState({$id, email, name, phone} as UserType)
       Alert.alert("Login successfully")
 
-      router.navigate("screens/Home/parking");
+      router.navigate("/screens/Home/HomeView");
     } catch (error) {
       console.log("unable to login ", error);
     }
