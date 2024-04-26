@@ -42,7 +42,7 @@ function RegisterScreen() {
                <View style={styles.ViewInput}>
                     <Input text="Email" onChangeText={setEmail} value={email} />
                     
-                    <PasswordInput text="Password" onChangeText={newText => setPassword(newText)}  value={password}/>
+                  <PasswordInput text="Password" onChangeText={newText =>setPassword(newText)}  value={password}password={password} setPassword={setPassword}/>
                     <Input text="Password Authentication"  onChangeText={newText =>setPassword(newText)}  value={password} />
                         <Input text="Phone Number" onChangeText={setPhoneNumber} value={phoneNumber} />
                         

@@ -6,14 +6,16 @@ import { Feather } from '@expo/vector-icons';
 
 interface PasswordProps{
     onChangeText: (text: string) => void
-    value:string
-    text:string
+    value:string,
+    text: string,
+    password: string,
+    setPassword:React.Dispatch<React.SetStateAction<string>>
 }
 
 
 
-function PasswordInput({text}:PasswordProps) {
-    const [password, setPassword] = useState('')
+function PasswordInput({text,password,setPassword}:PasswordProps) {
+   
     const [showPassword, setShowPassword] = useState(false)
    
     

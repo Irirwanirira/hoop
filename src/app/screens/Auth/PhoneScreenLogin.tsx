@@ -26,7 +26,7 @@ function PhoneScreenLogin() {
                 <View style={styles.ViewInput}>
                 <PhoneNumberInput/>
                 
-                 <PasswordInput text="Password" onChangeText={newText =>setPassword(newText)}  value={password} />
+                <PasswordInput text="Password" onChangeText={newText =>setPassword(newText)}  value={password}password={password} setPassword={setPassword}/>
                     <View style={styles.Forget}>
                         <Text style={styles.forgetText}>Forget password? <Link href="/screens/Auth/ForgetPasswordScreen"><Text style={styles.retrieve}>Retrieve</Text></Link></Text>
                     </View>    

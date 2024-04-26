@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import Input from "../../../components/Input";
 import LoginButton from "../../../components/LoginButton";
+import PasswordInput from "../../../components/PasswordInput";
 import { COLORS } from "../../../constants";
 import { useState } from "react";
 import { Link, router } from "expo-router";
@@ -63,12 +64,7 @@ function EmailLoginScreen() {
               onChangeText={(newText) => setEmail(newText)}
               value={email}
             />
-            <TextInput
-              style={{ padding: 15, backgroundColor: "#fff", width: "65%",borderRadius: 10,marginBottom: 20 }}
-              placeholder="Password"
-              onChangeText={setPassword}
-              value={password}
-            />
+              <PasswordInput text="Password" onChangeText={newText =>setPassword(newText)}  value={password}password={password} setPassword={setPassword}/>
             <View style={styles.Forget}>
               <Text style={styles.ForgetText}>
                 Forget password?{" "}
