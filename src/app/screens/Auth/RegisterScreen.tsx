@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {ID} from "react-native-appwrite"
-import { StyleSheet, Text, Image, View, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions, ImageBackground } from 'react-native'
+import { StyleSheet, Text, Image, View, SafeAreaView, Button, ToastAndroid,Alert, Platform, StatusBar, Dimensions, ImageBackground } from 'react-native'
 import { Link } from 'expo-router';
 import Input from '../../../components/Input';
 import LoginButton from '../../../components/LoginButton';
@@ -8,22 +8,47 @@ import PasswordInput from '../../../components/PasswordInput';
 import { COLORS } from '../../../constants';
 import { account } from '../../../appwrite/Appwrite';
 import { router } from 'expo-router';
+
+
 function RegisterScreen() {
+    const [names, setNames] = useState("")
     const [email, setEmail] = useState<string>("")
     const [phoneNumber, setPhoneNumber] = useState<string>("")
     const [password, setPassword] = useState<string>("")
-    const [alert,setAlert]=useState<string>("")
-    const [comfirmPassword,setComfirmPassword]=useState("")
+    const [confirmPassword,setConfirmPassword]=useState("")
 
     const handleCreate = async () => {
+        if(!email || !password || !names){
+            ToastAndroid.show(
+                "Please fill all the fields",
+            ToastAndroid.SHORT
+            )
+            return
+        }
+        if(password !== confirmPassword){
+            ToastAndroid.show(
+                "Unmatched password",
+            ToastAndroid.SHORT
+            )
+            return
+        }
         try {
-            
-            await account.create(ID.unique(), email, password,"Joseph")
-            setAlert("New user registered successfully")
-            Alert.alert("New user registered successfully")
+            await account.create(ID.unique(), email, password,names)
+            ToastAndroid.show(
+                "New user registered successfully",
+                ToastAndroid.SHORT
+            )
             router.navigate("screens/Auth/EmailLoginScreen");
+            setEmail("")
+            setEmail(""),
+            setPassword("")
+            setConfirmPassword("")
+    
         } catch (error) {
-            setAlert("Failed to register new user")
+            ToastAndroid.show(
+                "Failed to register new user",
+                ToastAndroid.SHORT
+            )
             console.log(error)
       }
   }
@@ -40,12 +65,12 @@ function RegisterScreen() {
             <View style={styles.LowerBig}>
 
                <View style={styles.ViewInput}>
+                    <Input text="Name" onChangeText={setNames} value={names} />
                     <Input text="Email" onChangeText={setEmail} value={email} />
                     
                     <PasswordInput text="Password" onChangeText={newText => setPassword(newText)}  value={password} password={password} setPassword={setPassword}/>
-                    <Input text="Password Authentication"  onChangeText={newText =>setComfirmPassword(newText)}  value={comfirmPassword} />
+                    <Input text="Password Authentication"  onChangeText={newText =>setConfirmPassword(newText)}  value={confirmPassword} />
                         <Input text="Phone Number" onChangeText={setPhoneNumber} value={phoneNumber} />
-                        
             </View>
                 <View>
                     <View style={styles.ButtonView}>
@@ -56,8 +81,9 @@ function RegisterScreen() {
                     />
                     </View>
                     <View style={styles.LowerLastView}>
-                        <Text style={styles.LowerText}>Have an account? <Link href="/screens/Auth/EmailLoginScreen"><Text style={styles.retrieve}>Sign in</Text></Link></Text>    
-
+                        <Text style={styles.LowerText}>Have an account? 
+                        <Link href="/screens/Auth/EmailLoginScreen">
+                        <Text style={styles.retrieve}>Sign in</Text></Link></Text>    
                     </View>
             </View>
             </View>

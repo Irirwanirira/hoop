@@ -5,6 +5,7 @@ import {
   TextInput,
   ImageBackground,
   ScrollView,
+  ActivityIndicator
 } from "react-native";
 import { mall, COLORS, SIZES } from "../../../../constants";
 import { Ionicons } from "@expo/vector-icons";
@@ -18,13 +19,10 @@ import UserContext from "../../../../context/UserContext";
 const HomeView = () => {
   const [data, setData] = useState<UserType>([] as any)
   const [parkingList, setParkingList] = useState([])
+  const [isLoading, setIsLoading ] = useState(false)
 
   const {userState} = useContext(UserContext)
 
-
-  if (userState === null) {
-    return <Text>Loading...</Text>;
-  }
 
   const fetchParking = async()=> {
     try {
@@ -33,6 +31,7 @@ const HomeView = () => {
           '66296e5b134e7f12ff59',
       )
       setParkingList(list.documents)
+      setIsLoading(true)
   
     } catch (error) {
         console.log("error", error)
@@ -70,7 +69,7 @@ const HomeView = () => {
           }}
         >
           <View>
-            <Link href="/screens/Home/ProfileScreen">
+            <Link href="screens/Home/ProfileScreen">
               <Text style={{ fontSize: 28, color: COLORS.Secondary }}>
                 `Hola, {data.name}👋🏻
               </Text>
@@ -149,7 +148,7 @@ const HomeView = () => {
           <Category />
         </View>
 
-        <View>
+        <View >
           <Text
             style={{
               color: COLORS.Primary,
@@ -160,8 +159,9 @@ const HomeView = () => {
             Nearest Parking Spaces
           </Text>
           <View>
-            {
-                parkingList.map((item: any ) => <HomeCardComponent key={item.$id} park={item}/>)
+            { 
+            isLoading ?  (parkingList.map((item: any ) => <HomeCardComponent key={item.$id} park={item}/>))   
+            : <ActivityIndicator size="large" color="black" style={{alignItems: "center", justifyContent: "center"}} />
             }
           </View>
         </View>
