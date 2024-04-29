@@ -25,6 +25,21 @@ function EditProfileScreen() {
     const handleNameChange = (newName:string) => {
         setName(newName)
     }
+
+    const handleChange =async () => {
+        try {
+            setData(prevData => ({
+                ...prevData,
+                name:name
+            }))
+            const result = await account.updateUser({
+                userId: Data.$id,
+                name:name
+            })
+        } catch (err) {
+            console.log("Failed to upfdate profile:",err)
+       } 
+    }
     return (
      <SafeAreaView style={styles.container}>
         <View style={styles.parent} >
@@ -105,7 +120,8 @@ function EditProfileScreen() {
                         <ProfiteBtn
                         backgroundColor="#130F26"
                          color="white"
-                         title="Save"   
+                        title="Save"
+                        onClick={handleChange}
                         />
 
                 </View>

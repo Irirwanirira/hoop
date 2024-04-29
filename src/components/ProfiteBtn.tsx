@@ -5,12 +5,13 @@ interface pass {
     title: string,
     functionAction?: () => void,
     backgroundColor: string,
-    color:string
+    color: string,
+    onClick?:()=>void
    
 }
 
 
-function ProfiteBtn( { title, functionAction,backgroundColor="#130F26",color="white"}: pass) {
+function ProfiteBtn( { title, functionAction,backgroundColor="#130F26",color="white",onClick}: pass) {
     return (
         <Pressable style={[styles.btn, {backgroundColor}]} onPress={functionAction}>
             <Text style={[styles.text,{color}]}>{ title}</Text>
