@@ -5,8 +5,8 @@ import {
   View,
   SafeAreaView,
   ImageBackground,
-  TextInput,
-  Alert
+  Alert,
+  ToastAndroid
 } from "react-native";
 import Input from "../../../components/Input";
 import LoginButton from "../../../components/LoginButton";
@@ -25,12 +25,16 @@ function EmailLoginScreen() {
 
   const handleLogin = async () => {
     if (!emails || !password) {
-      console.log("Please enter both email and password.");
+         ToastAndroid.show(
+          "Please enter both email and password.",
+        ToastAndroid.SHORT
+         )
       return;
     }
     try {
       await account.createEmailSession(emails, password);
       const current = await account.get()
+
       // const newUser: UserType = {
       //   $id:current.$id,
       //   name: current.name,
@@ -39,11 +43,16 @@ function EmailLoginScreen() {
       // }
       const {$id, name ,email, phone} = current
       updateUserState({$id, email, name, phone} as UserType)
-      Alert.alert("Login successfully")
-
+        ToastAndroid.show(
+          "Logged in successfully",
+        ToastAndroid.SHORT
+      )
       router.navigate("screens/Home/parking");
     } catch (error) {
-      console.log("unable to login ", error);
+      ToastAndroid.show(
+       "Unable to login "  + `${error}`,
+        ToastAndroid.SHORT
+      )
     }
   };
 

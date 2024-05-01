@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Ionicons } from '@expo/vector-icons';
-import { Pressable } from "react-native";
+import { Pressable, ToastAndroid } from "react-native";
 import { Link,router } from "expo-router";
 import {
   View,
@@ -29,8 +29,18 @@ import {
   settingsIcon,
 } from "../../../constants/Icons";
 import Buttons from "../../../components/Buttons";
+import { account } from "../../../appwrite/Appwrite";
+import { UserType } from "../../../context/UserContext";
+router.navigate("screens/Home/parking");
 
-const datas = [
+interface dataType {
+  id: string,
+  icon: string
+  title: string,
+  direction:string
+}
+
+const datas: dataType[] = [
   {
     id: "1",
     icon: `${profileIcon}`,
@@ -85,6 +95,22 @@ const CardComponents = ({ item }: { item: any }) => {
 };
 
 const ProfileScreen = () => {
+
+  const [data, setData] = useState<UserType>([] as any)
+
+  useEffect(() => {
+      const current = account.get()
+      current
+      .then((response: any) => {
+          const {name, email, $id, phone} = response;
+          setData({name, email, $id, phone} as UserType)
+      })
+      .catch((error: any) => {
+          console.log(error)
+          setData({name: "guest" ,email: "", $id: "", phone: ""} as UserType)
+      })
+  
+    }, [data]);
   return (
     <View style={{ backgroundColor:"#081024" }}>
       <ImageBackground
@@ -103,7 +129,6 @@ const ProfileScreen = () => {
                     <Text style={styles.EditText}>Profile</Text>
                 </View>
                 </View>
-       
         <View
           style={{
             flexDirection: "row",
@@ -128,11 +153,20 @@ const ProfileScreen = () => {
                 Welcome
               </Text>
               <Text style={{ fontSize: 28, color: COLORS.Secondary }}>
-                Diane
+                {data.name}
               </Text>
             </View>
           </View>
-          <View
+          <Pressable
+          onPress={async()=> {
+            await account.deleteSessions()
+            ToastAndroid.show(
+              "User logged out successfully",
+            ToastAndroid.SHORT
+          )
+          router.navigate("screens/Auth/EmailLoginScreen");
+
+          }}
             style={{
               backgroundColor: "#2A344E",
               padding: 15,
@@ -143,7 +177,7 @@ const ProfileScreen = () => {
             }}
           >
             <Image source={logoutIcon} resizeMode="cover" />
-          </View>
+          </Pressable>
         </View>
       </ImageBackground>
 
