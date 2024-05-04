@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { Image } from 'expo-image';
 import { StyleSheet, Text, View, Pressable, Image, SafeAreaView } from "react-native";
 import { Link, router } from "expo-router";
@@ -7,11 +7,25 @@ import { COLORS, SIZES } from "../../../constants";
 import Buttons from "../../../components/Buttons";
 import { callIcon, chatIcon, messageIcon, redMessageIcon } from "../../../constants/Icons";
 import { SuccessEllipseImage, SuccessImage } from "../../../constants/Images";
+import ParkingRouteScreen from "./ParkingRouteScreen";
 
 const PaymentSuccessScreen = () => {
+
+  useEffect(()=> {
+    function backHome(){
+      setTimeout(()=> {
+      <View>
+        <ParkingRouteScreen />
+      </View>
+      router.push("/screens/Home/parking")
+      }, 1000)
+  
+    }
+    backHome
+  }, [])
+
   return (
     <SafeAreaView style={styles.container}>
-
       <View style={styles.imageContainer}>
         <Image source={SuccessEllipseImage} />
         <Image style={styles.image} source={SuccessImage} />
@@ -32,7 +46,7 @@ const PaymentSuccessScreen = () => {
 
       <View style={styles.btnSection}>
         <Buttons
-            onPress={(): any=> router.navigate("/screens/Home/HomeView")}
+            onPress={(): any=> router.navigate("/screens/Home/parking")}
           action={
               <Text style={{ color: COLORS.Secondary, fontWeight: "900" }}>Back to Home</Text>
           }

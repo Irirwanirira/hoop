@@ -166,6 +166,20 @@ const _layout = () => {
                     headerShown: false,
                 }}
             />
+
+            <Stack.Screen name= "screens/Home/HistoryScreen"
+                    options={{
+                    headerTitle: "",
+                    headerShown: false,
+                }}
+            />
+
+            <Stack.Screen name= "screens/Home/ExploreScreen"
+                    options={{
+                    headerTitle: "",
+                    headerShown: false,
+                }}
+            />
     </Stack>
   )
 }

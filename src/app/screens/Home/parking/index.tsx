@@ -5,37 +5,43 @@ import {
   TextInput,
   ImageBackground,
   ScrollView,
+  Pressable,
+  ActivityIndicator,
 } from "react-native";
 import { mall, COLORS, SIZES } from "../../../../constants";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons,Entypo } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import { account, databases } from "../../../../appwrite/Appwrite";
 import Category from "../../../../components/Category";
 import HomeCardComponent from "../../../../components/cards/HomeCardComponent";
 import { UserType } from "../../../../context/UserContext";
 import UserContext from "../../../../context/UserContext";
+import MenuModal from "../../../../components/MenuModal";
 
 const HomeView = () => {
   const [data, setData] = useState<UserType>([] as any)
-  const [parkingList, setParkingList] = useState([])
-
+  const [parkingList, setParkingList] = useState<[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const {userState} = useContext(UserContext)
 
-
-  if (userState === null) {
-    return <Text>Loading...</Text>;
+  const [toggleMenu, setToggleMenu] = useState<boolean>(false)
+  function handleMenu (){
+    setToggleMenu(!toggleMenu)
   }
 
   const fetchParking = async()=> {
     try {
+      setIsLoading(true)
       const list = await databases.listDocuments(
           'hoopDatabase',
           '66296e5b134e7f12ff59',
       )
       setParkingList(list.documents)
-  
+      setIsLoading(false)
+
     } catch (error) {
         console.log("error", error)
+        setIsLoading(false)
     }
   }
   
@@ -52,7 +58,7 @@ const HomeView = () => {
     })
     fetchParking()
 
-  }, [data]);
+  }, []);
 
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.Primary }}>
@@ -67,14 +73,13 @@ const HomeView = () => {
             alignItems: "center",
             justifyContent: "space-between",
             marginTop: 40,
+            zIndex: 1
           }}
         >
           <View>
-            <Link href="/screens/Home/ProfileScreen">
               <Text style={{ fontSize: 28, color: COLORS.Secondary }}>
                 `Hola, {data.name}👋🏻
               </Text>
-            </Link>
             <Text
               style={{
                 fontSize: SIZES.small_sm,
@@ -96,15 +101,19 @@ const HomeView = () => {
               gap: 10,
             }}
           >
-            <Link href="/screens/Notification/NotificationScreen">
-              <Ionicons
-                name="notifications-outline"
+            <Pressable
+              onPress={handleMenu}>
+              <Entypo 
+                name="dots-three-vertical"
                 size={24}
                 color="#9E9EA4"
               />
-            </Link>
+            </Pressable>
           </View>
         </View>
+            {
+              toggleMenu &&  <View style={{alignSelf: "flex-end", zIndex: 10}}><MenuModal /></View>
+            }
         <View
           style={{
             backgroundColor: "#2A344E",
@@ -160,8 +169,11 @@ const HomeView = () => {
             Nearest Parking Spaces
           </Text>
           <View>
-            {
-                parkingList.map((item: any ) => <HomeCardComponent key={item.$id} park={item}/>)
+            { isLoading ? (
+              <ActivityIndicator size="large" color={COLORS.Orange} />
+            ) : (
+              parkingList.map((item: any ) => <HomeCardComponent key={item.$id} park={item}/>)
+            )
             }
           </View>
         </View>

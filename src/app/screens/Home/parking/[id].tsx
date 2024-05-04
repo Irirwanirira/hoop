@@ -7,7 +7,8 @@ import {
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
-  Pressable
+  Pressable,
+  ActivityIndicator
 } from "react-native";
 import { mall, COLORS, SIZES } from "../../../../constants";
 import {
@@ -31,6 +32,7 @@ interface parkingType{
 const ParkingDetailsScreen = () => {
   const [parkDetail, setParkDetail] = useState<parkingType | null>(null)
   const [bookIt, setBookedIt] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const { id } = useLocalSearchParams<{id: string}>();
 
   useEffect(()=> {
@@ -58,6 +60,7 @@ const ParkingDetailsScreen = () => {
 
   const bookParking = async()=> {
     try {
+      setIsLoading(true)
     const park = await databases.updateDocument(
         'hoopDatabase',
           '66296e5b134e7f12ff59',
@@ -65,8 +68,12 @@ const ParkingDetailsScreen = () => {
           {"isBooked": bookIt}
       )
       setBookedIt(!bookIt)
+      setIsLoading(false)
+
     } catch (error) {
         console.log("error", error)
+        setIsLoading(false)
+
     }
   }
 
@@ -84,7 +91,6 @@ const ParkingDetailsScreen = () => {
             style={{ alignSelf: "flex-end" }}
             source={leftArrowWithBackground}
             />
-
             <Text style={{ fontSize: SIZES.medium_m }}>details</Text>
             <View></View>
       </Pressable>
@@ -168,7 +174,7 @@ const ParkingDetailsScreen = () => {
       <View></View>
 
       <View
-        style={{ marginTop: 40, alignItems: "center", position: "relative" }}
+        style={{ marginTop: 40, alignItems: "center"}}
       >
         <Text style={{ fontSize: SIZES.medium_18, alignSelf: "flex-start" }}>
           Information
@@ -190,22 +196,36 @@ const ParkingDetailsScreen = () => {
           </Text>
         </Text>
 
-        <TouchableOpacity
-          style={[parkDetail?.isBooked ? styles.booked : styles.notBooked,{
-            paddingHorizontal: 70,
-            paddingVertical: 20,
-            borderRadius: 10,
-            position: "absolute",
-            bottom: -25,
-          }]}
-        >
+        <View style={{flexDirection: "row",alignItems: "center",gap: 10}}>
           <Pressable
+              style={[parkDetail?.isBooked ? styles.booked : styles.notBooked,{
+                paddingHorizontal: 40,
+                paddingVertical: 20,
+                borderRadius: 10,
+              }]}
             onPress={bookParking }>
-            <Text style={{ color: COLORS.Secondary, fontSize: SIZES.medium }}>
-              {parkDetail?.isBooked ? "booked" : "Book now"}
-            </Text>
+              {isLoading ? (
+              <ActivityIndicator size="small" color="#FFF" />
+              ) : (
+                 <Text style={{ color: COLORS.Secondary, fontSize: SIZES.medium }}>
+                 {parkDetail?.isBooked ? "booked" : "Book now"}
+               </Text>
+              )
+              }
           </Pressable>
-        </TouchableOpacity>
+          <Pressable
+              style={{
+                paddingHorizontal: 40,
+                paddingVertical: 20,
+                borderRadius: 10,
+                backgroundColor: "#130F26",
+              }}
+            onPress={()=> router.push("/screens/Home/TrackingParkScreen") }>
+                 <Text style={{ color: COLORS.Secondary, fontSize: SIZES.medium }}>
+                 explore
+               </Text>
+          </Pressable>
+        </View>
       </View>
     </SafeAreaView>
   );

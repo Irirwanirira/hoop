@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground } from 'react-native'
+import { StyleSheet, Text, Image, View, TouchableHighlight, SafeAreaView, Button, Alert, Platform, StatusBar, Dimensions,ImageBackground, Pressable } from 'react-native'
 import { router, useNavigation,Link } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import OrderNotification from '../../../components/OrderNotification';
@@ -7,13 +7,13 @@ import OrderNotification from '../../../components/OrderNotification';
 function NotificationScreen() {
     return (
          <SafeAreaView style={styles.container}>
-        <View style={styles.parent} >
+            <View style={styles.parent} >
                 <View style={styles.upper}>
-                <Link href="/screens/Home/HomeView">
+                <Pressable onPress={()=> router.push("/screens/Home/parking")}>
                     <View style={styles.IconView}>
                     <Ionicons name="chevron-back" size={24} color="#9E9EA4" />
                     </View>
-                </Link>
+                </Pressable>
                 <View style={styles.notificationView}>
                     <Text style={styles.notification}>Notifications</Text>
                 </View>
@@ -44,23 +44,19 @@ function NotificationScreen() {
                     </View>
 
                 </View>
-            
-
         </View>
         </SafeAreaView>
         
     );
 }
 
-export default NotificationScreen;
-
 const styles = StyleSheet.create({
     container: {
-        display: "flex",
+        flex: 1,
         flexDirection:"row",
         backgroundColor:"#F4F4FA",
         justifyContent: 'center',
-        marginTop: 25,
+        alignItems: "flex-start",
         height:"100%"
     },
     parent: {
@@ -98,8 +94,7 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent: "center",
         alignItems: "center",
-        flex:1
-        // width:"70%"
+        flex:1,
     },
     todayView: {
         marginBottom:20
@@ -123,3 +118,6 @@ const styles = StyleSheet.create({
     }
     
 })
+
+export default NotificationScreen;
+

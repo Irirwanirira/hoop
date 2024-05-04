@@ -34,8 +34,8 @@ function index() {
   return (
     <UserContextProvider>
       <View onLayout={onLayoutViewRootView} style={styles.container}>
-        <WelcomeScreen />
-        {/* <HomeView /> */}
+        {/* <WelcomeScreen /> */}
+        <HomeView />
       </View>
     </UserContextProvider>
   );

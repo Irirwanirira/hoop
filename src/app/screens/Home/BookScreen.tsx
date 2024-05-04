@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CircularWheel from "../../../components/spin";
 import {
   View,
@@ -98,17 +98,18 @@ const BookScreen = () => {
 
       <View style={{flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: 30,paddingHorizontal: 30}}>
         <Text style={{ fontSize: SIZES.large}}>$35,00</Text>
-        <TouchableOpacity
+        <Pressable
+        onPress={()=> router.push("/screens/Home/BookDetails")}
             style={{ 
                 backgroundColor: "#130F26",
                 paddingHorizontal: 100,
                 paddingVertical: 20,
                 borderRadius: 10,
             }}>
-          <Link href={"/screens/Home/BookDetails"} style={{ color: COLORS.Secondary, fontSize: SIZES.medium }}>
+          <Text style={{ color: COLORS.Secondary, fontSize: SIZES.medium }}>
             Book Now
-          </Link>
-        </TouchableOpacity>
+          </Text>
+        </Pressable>
       </View>
     </SafeAreaView>
   );
