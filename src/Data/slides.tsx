@@ -5,7 +5,7 @@ interface OnBoardingItem {
     title: string;
     intro: string;
     image: any;
-  }
+}
 
 const OnBoardingData: OnBoardingItem[] = [
     {   

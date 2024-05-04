@@ -65,7 +65,8 @@ const datas = [
 
 const CardComponents = ({ item }: { item: any }) => {
   return (
-    <View
+    <Pressable
+    onPress={()=>router.push(item.direction)}
       style={{
         flexDirection: "row",
         justifyContent: "space-between",
@@ -78,9 +79,11 @@ const CardComponents = ({ item }: { item: any }) => {
         <Image style={{ width: 25, height: 25 }} source={item.icon} />
         <Text style={{ fontSize: SIZES.medium_18 }}>{item.title}</Text>
       </View>
-       <Link href={item.direction}><Image style={{ width: 10, height: 15 }} source={rightIcon} /></Link>
+      <View>
+        <Image style={{ width: 10, height: 15 }} source={rightIcon} />
+      </View>
       
-    </View>
+    </Pressable>
   );
 };
 

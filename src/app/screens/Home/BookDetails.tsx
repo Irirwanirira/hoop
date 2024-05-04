@@ -153,17 +153,18 @@ const BookDetailsScreen = () => {
 
       <View style={{flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: 30}}>
         <Text style={{ fontSize: SIZES.large}}>$35,00</Text>
-        <TouchableOpacity
+        <Pressable
+        onPress={()=> router.push("/screens/Home/PaymentScreen")}
             style={{ 
                 backgroundColor: "#130F26",
                 paddingHorizontal: 100,
                 paddingVertical: 20,
                 borderRadius: 10,
             }}>
-          <Link href={"/screens/Home/PaymentScreen"} style={{ color: COLORS.Secondary, fontSize: SIZES.medium }}>
+          <Text style={{ color: COLORS.Secondary, fontSize: SIZES.medium }}>
             pay
-          </Link>
-        </TouchableOpacity>
+          </Text>
+        </Pressable>
       </View>
     </SafeAreaView>
   );

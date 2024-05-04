@@ -1,9 +1,20 @@
 import React from 'react'
-import { View, Text, TextInput, Image, FlatList, StyleSheet } from 'react-native'
+import { View, Text, TextInput, Image, FlatList, StyleSheet, Pressable } from 'react-native'
 import {mall, COLORS, SIZES } from '../../../constants'
-import { filterIcon, locationIcon, searchIcon } from '../../../constants/Icons'
+import { filterIcon, leftArrowWithBackground, locationIcon, searchIcon } from '../../../constants/Icons'
+import { router } from 'expo-router'
 
-const datas = [
+interface OnBoardingItem {
+    id: string;
+    name: string
+    address: string;
+    price: number;
+    time: number
+    image: any;
+    date: string
+}
+
+const datas: OnBoardingItem[] = [
     {
         id: "1",
         name: "Graha Mall",
@@ -24,7 +35,7 @@ const datas = [
 
 ]
 
-const CardComponents =({item}: {item: any})=> {
+const CardComponents =({item}: {item: OnBoardingItem})=> {
    return ( 
     <View style={{flexDirection: "row",gap: 20, alignItems: "center",  marginTop: 40, backgroundColor: "#fff",padding: 20, borderRadius: 20}}>
         <Image source={item.image} />
@@ -55,7 +66,23 @@ const CardComponents =({item}: {item: any})=> {
 const HistoryScreen = () => {
   return (
     <View style={styles.container}>
-        <Text style={{alignSelf: "center", fontSize: SIZES.medium_m, marginTop: 40}}>History</Text>
+        <Pressable
+            onPress={()=> router.back()}
+            style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            paddingHorizontal: 30,
+            marginTop: 40
+            }}
+        >
+            <Image
+            style={{ alignSelf: "flex-end" }}
+            source={leftArrowWithBackground}
+            />
+            <Text style={{ fontSize: SIZES.medium_m }}>History</Text>
+            <View></View>
+        </Pressable>        
         <View style={{flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 10}}>
             <View style={{
                 flex: 1,
@@ -104,7 +131,6 @@ const HistoryScreen = () => {
             data={datas}
             renderItem={({item}) => <CardComponents item={item}  />}
             />
-
         </View>
 
         <View style={{marginTop: 30, }}>
